@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		55C2CF072BDF941C1FF4FDC0 /* libPods-radiozero-radiozeroTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BC28F58121EA6DE92A3951 /* libPods-radiozero-radiozeroTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8ADD2EC36A724FC1AB6391F0 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 29075BEF34934DE2930D5FFC /* envelope.png */; };
+		697FB76648BA44048906A146 /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = D70E111FFAF8479AB41A4F6E /* events.png */; };
+		AEC18909D6A943E18480FECC /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9F6220A376463BB383CE39 /* home.png */; };
+		2147C24F4D764B7CA1A1EEA9 /* pantalla.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB17CC19C7411489D70EFE /* pantalla.png */; };
+		9D9E937EF83B4E1CBE0146B2 /* podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = F84123E33AAE466ABF9F9DBD /* podcast.png */; };
+		292E19094D354114842D2A46 /* releases.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD72B18D55407DAB0851B8 /* releases.png */; };
+		52D6C85A3B15477EA46C692C /* radio.png in Resources */ = {isa = PBXBuildFile; fileRef = EE80D7BA00674DD8992B3DEC /* radio.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		EA1804002A94653271AD5C46 /* Pods-radiozero-radiozeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero-radiozeroTests.release.xcconfig"; path = "Target Support Files/Pods-radiozero-radiozeroTests/Pods-radiozero-radiozeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FDBADDF2746EE587437057E8 /* Pods-radiozero-radiozeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero-radiozeroTests.debug.xcconfig"; path = "Target Support Files/Pods-radiozero-radiozeroTests/Pods-radiozero-radiozeroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29075BEF34934DE2930D5FFC /* envelope.png */ = {isa = PBXFileReference; name = "envelope.png"; path = "../assets/envelope.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D70E111FFAF8479AB41A4F6E /* events.png */ = {isa = PBXFileReference; name = "events.png"; path = "../assets/events.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CE9F6220A376463BB383CE39 /* home.png */ = {isa = PBXFileReference; name = "home.png"; path = "../assets/home.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5BFB17CC19C7411489D70EFE /* pantalla.png */ = {isa = PBXFileReference; name = "pantalla.png"; path = "../assets/pantalla.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F84123E33AAE466ABF9F9DBD /* podcast.png */ = {isa = PBXFileReference; name = "podcast.png"; path = "../assets/podcast.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6EDD72B18D55407DAB0851B8 /* releases.png */ = {isa = PBXFileReference; name = "releases.png"; path = "../assets/releases.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE80D7BA00674DD8992B3DEC /* radio.png */ = {isa = PBXFileReference; name = "radio.png"; path = "../assets/radio.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +148,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				23CEF5D88A326BB61C306C10 /* Pods */,
+				028B684D8C4144E995C48043 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +163,21 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		028B684D8C4144E995C48043 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				29075BEF34934DE2930D5FFC /* envelope.png */,
+				D70E111FFAF8479AB41A4F6E /* events.png */,
+				CE9F6220A376463BB383CE39 /* home.png */,
+				5BFB17CC19C7411489D70EFE /* pantalla.png */,
+				F84123E33AAE466ABF9F9DBD /* podcast.png */,
+				6EDD72B18D55407DAB0851B8 /* releases.png */,
+				EE80D7BA00674DD8992B3DEC /* radio.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +275,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8ADD2EC36A724FC1AB6391F0 /* envelope.png in Resources */,
+				697FB76648BA44048906A146 /* events.png in Resources */,
+				AEC18909D6A943E18480FECC /* home.png in Resources */,
+				2147C24F4D764B7CA1A1EEA9 /* pantalla.png in Resources */,
+				9D9E937EF83B4E1CBE0146B2 /* podcast.png in Resources */,
+				292E19094D354114842D2A46 /* releases.png in Resources */,
+				52D6C85A3B15477EA46C692C /* radio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
