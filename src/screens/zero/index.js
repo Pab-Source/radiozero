@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-const Releases = () => {
+const Zero = () => {
   return (
     <View style={{flex: 1, backgroundColor: '#051439'}}>
-      <Text>Releases</Text>
+      <Text>Zero</Text>
     </View>
   );
 };
 
-export default Releases;
+export default Zero;

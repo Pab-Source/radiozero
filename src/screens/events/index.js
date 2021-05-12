@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 
 const Events = () => {
   return (
-    <View>
+    <View style={{flex: 1, backgroundColor: '#051439'}}>
       <Text>Events</Text>
     </View>
   );

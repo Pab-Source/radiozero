@@ -4,8 +4,7 @@ import Menu from '../../components/menu';
 
 const Radio = ({navigation}) => {
   return (
-    <View style={{backgroundColor: '#051439', flex: 1}}>
-      <Menu {...{navigation}} />
+    <View style={{backgroundColor: '#06143c', flex: 1}}>
       <Text>Radio</Text>
     </View>
   );
