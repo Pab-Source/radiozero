@@ -44,8 +44,8 @@ const RootNavigator = () => {
           options={{
             tabBarIcon: () => (
               <Image
-                source={require('../../assets/radio.png')}
-                style={{height: 40, width: 40}}
+                source={require('../../assets/icono_radio.png')}
+                style={{height: 50, width: 50}}
               />
             ),
           }}
