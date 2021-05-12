@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, SafeAreaView, StyleSheet, Text, Dimensions} from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import HTML from 'react-native-render-html';
-
+//
 const App = () => {
   const [isStop, setIsStop] = useState(false);
 
