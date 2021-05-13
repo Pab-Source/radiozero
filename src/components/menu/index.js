@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {navigate} from '../../navigator/navigatorService';
+import {navigate} from '../../navigator/NavigationService';
 
 const Menu = () => {
   const [visible, setVisible] = useState(false);
@@ -160,11 +160,12 @@ const styles = StyleSheet.create({
   },
   contentModal: {
     marginTop: 60,
-    height: '70%',
+    height: '75%',
     borderColor: 'white',
     borderBottomWidth: 1,
     borderTopWidth: 1,
     padding: 20,
+    backgroundColor: '#051439',
   },
   item: {
     marginTop: 10,
