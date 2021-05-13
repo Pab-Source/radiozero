@@ -8,10 +8,11 @@ import {navigatorRef} from './NavigationService';
 
 const Stack = createStackNavigator();
 
+console.log('nav', RootBottomTabNavigator);
 const RootNavigator = () => {
   return (
     <NavigationContainer ref={navigatorRef}>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={RootBottomTabNavigator}

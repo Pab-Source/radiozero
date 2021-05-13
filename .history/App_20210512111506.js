@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import RootNavigator from './src/navigator/TabNavigator/Tab';
+import RootNavigator from './src/navigator';
 
 const App = () => {
   return (

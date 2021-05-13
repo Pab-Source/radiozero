@@ -8,25 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* radiozeroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* radiozeroTests.m */; };
+		0DB1D9D2D5074D8FBB875F54 /* caratula.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4125F3582B354E6DBF389EA4 /* caratula.jpeg */; };
 		0FD6E32A9B26CCC04AC89E9F /* libPods-radiozero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7920825DFB9BACDB4C958123 /* libPods-radiozero.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		55C2CF072BDF941C1FF4FDC0 /* libPods-radiozero-radiozeroTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BC28F58121EA6DE92A3951 /* libPods-radiozero-radiozeroTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8ADD2EC36A724FC1AB6391F0 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 29075BEF34934DE2930D5FFC /* envelope.png */; };
-		697FB76648BA44048906A146 /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = D70E111FFAF8479AB41A4F6E /* events.png */; };
-		AEC18909D6A943E18480FECC /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9F6220A376463BB383CE39 /* home.png */; };
+		18C5584C5BF249A2A8724E0E /* radio2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7629DBD4734386A34C4DB8 /* radio2.png */; };
 		2147C24F4D764B7CA1A1EEA9 /* pantalla.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFB17CC19C7411489D70EFE /* pantalla.png */; };
-		9D9E937EF83B4E1CBE0146B2 /* podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = F84123E33AAE466ABF9F9DBD /* podcast.png */; };
+		2340A3B8C7504C38A8202075 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 210C79707F9E4A788BC24491 /* pause.png */; };
 		292E19094D354114842D2A46 /* releases.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD72B18D55407DAB0851B8 /* releases.png */; };
-		52D6C85A3B15477EA46C692C /* radio.png in Resources */ = {isa = PBXBuildFile; fileRef = EE80D7BA00674DD8992B3DEC /* radio.png */; };
+		359A735783C04527AF011478 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 648AC7B37A1E4327BB7B9A9B /* contact.png */; };
 		367B14845E9C47C1B6256789 /* blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1729CEEA4643DBAB52F682 /* blog.png */; };
-		F2DA6E4F702F4CD18C75D373 /* iconmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = E3934F9A10F043EF86D56B65 /* iconmenu.png */; };
-		B2E1170FE286425797742916 /* icono_radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB4F19DFC546ACB197309A /* icono_radio.png */; };
-		86ED1A29634E4B43930B6ADB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 741C662AFFC7412FA782074B /* logo.png */; };
-		9F87A6DB21B14EFDAA5CDC3B /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */; };
 		407136C5C3C94EF6BAC380BB /* HelveticaNeue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07D0C50797F34000B8367AD9 /* HelveticaNeue.ttf */; };
+		52D6C85A3B15477EA46C692C /* radio.png in Resources */ = {isa = PBXBuildFile; fileRef = EE80D7BA00674DD8992B3DEC /* radio.png */; };
+		5485F26A3D3A4D1CB21E9E8F /* twitt.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4C310C9868495996BEB6EE /* twitt.png */; };
+		55C2CF072BDF941C1FF4FDC0 /* libPods-radiozero-radiozeroTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BC28F58121EA6DE92A3951 /* libPods-radiozero-radiozeroTests.a */; };
+		697FB76648BA44048906A146 /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = D70E111FFAF8479AB41A4F6E /* events.png */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		83043741693047D39757B4CD /* insta.png in Resources */ = {isa = PBXBuildFile; fileRef = F538A1B0289243F7B782164C /* insta.png */; };
+		86ED1A29634E4B43930B6ADB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 741C662AFFC7412FA782074B /* logo.png */; };
+		8ADD2EC36A724FC1AB6391F0 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 29075BEF34934DE2930D5FFC /* envelope.png */; };
+		8BF8CB304FE043419BA48D2E /* blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 02FBCE5D89594884AB179601 /* blog2.png */; };
+		9D9E937EF83B4E1CBE0146B2 /* podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = F84123E33AAE466ABF9F9DBD /* podcast.png */; };
+		9F87A6DB21B14EFDAA5CDC3B /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */; };
+		B2E1170FE286425797742916 /* icono_radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB4F19DFC546ACB197309A /* icono_radio.png */; };
+		CE2BEB8498754DC1A3A6356D /* volumen.png in Resources */ = {isa = PBXBuildFile; fileRef = FB30CE63A848422A885EE1DF /* volumen.png */; };
+		D236734D7BDB4F3B8F36BB0B /* volumen-mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 122C37A5DA224B13A5A6AF8B /* volumen-mute.png */; };
+		D6FE9DD6969D47F490BF7593 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = DC092BDDB1924F57BD433713 /* face.png */; };
+		DBC5FFD8DFDF4906BC81669A /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 7630ABA46CA24725B5F18294 /* play.png */; };
+		EE6ED4DA0ED34B7EAECF0AA0 /* tv.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC298537C2A4E599C545BC4 /* tv.png */; };
+		F2DA6E4F702F4CD18C75D373 /* iconmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = E3934F9A10F043EF86D56B65 /* iconmenu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +54,10 @@
 		00E356EE1AD99517003FC87E /* radiozeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = radiozeroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* radiozeroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = radiozeroTests.m; sourceTree = "<group>"; };
+		02FBCE5D89594884AB179601 /* blog2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = blog2.png; path = ../assets/blog2.png; sourceTree = "<group>"; };
 		04BC28F58121EA6DE92A3951 /* libPods-radiozero-radiozeroTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radiozero-radiozeroTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D0C50797F34000B8367AD9 /* HelveticaNeue.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeue.ttf; path = ../assets/HelveticaNeue.ttf; sourceTree = "<group>"; };
+		122C37A5DA224B13A5A6AF8B /* volumen-mute.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "volumen-mute.png"; path = "../assets/volumen-mute.png"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* radiozero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = radiozero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = radiozero/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = radiozero/AppDelegate.m; sourceTree = "<group>"; };
@@ -51,25 +65,33 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = radiozero/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = radiozero/main.m; sourceTree = "<group>"; };
 		17256A08C1FC44026E6A0D11 /* Pods-radiozero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero.release.xcconfig"; path = "Target Support Files/Pods-radiozero/Pods-radiozero.release.xcconfig"; sourceTree = "<group>"; };
+		210C79707F9E4A788BC24491 /* pause.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pause.png; path = ../assets/pause.png; sourceTree = "<group>"; };
+		29075BEF34934DE2930D5FFC /* envelope.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = envelope.png; path = ../assets/envelope.png; sourceTree = "<group>"; };
+		4125F3582B354E6DBF389EA4 /* caratula.jpeg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = caratula.jpeg; path = ../assets/caratula.jpeg; sourceTree = "<group>"; };
+		4FDB4F19DFC546ACB197309A /* icono_radio.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icono_radio.png; path = ../assets/icono_radio.png; sourceTree = "<group>"; };
+		5BFB17CC19C7411489D70EFE /* pantalla.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pantalla.png; path = ../assets/pantalla.png; sourceTree = "<group>"; };
+		648AC7B37A1E4327BB7B9A9B /* contact.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = contact.png; path = ../assets/contact.png; sourceTree = "<group>"; };
+		6B1729CEEA4643DBAB52F682 /* blog.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = blog.png; path = ../assets/blog.png; sourceTree = "<group>"; };
+		6EDD72B18D55407DAB0851B8 /* releases.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = releases.png; path = ../assets/releases.png; sourceTree = "<group>"; };
+		741C662AFFC7412FA782074B /* logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = logo.png; path = ../assets/logo.png; sourceTree = "<group>"; };
+		7630ABA46CA24725B5F18294 /* play.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = play.png; path = ../assets/play.png; sourceTree = "<group>"; };
 		7920825DFB9BACDB4C958123 /* libPods-radiozero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radiozero.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Bold.ttf"; path = "../assets/HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = radiozero/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBD96E525E0F5505E4CE4C4D /* Pods-radiozero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero.debug.xcconfig"; path = "Target Support Files/Pods-radiozero/Pods-radiozero.debug.xcconfig"; sourceTree = "<group>"; };
+		CEC298537C2A4E599C545BC4 /* tv.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tv.png; path = ../assets/tv.png; sourceTree = "<group>"; };
+		CF4C310C9868495996BEB6EE /* twitt.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = twitt.png; path = ../assets/twitt.png; sourceTree = "<group>"; };
+		D70E111FFAF8479AB41A4F6E /* events.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = events.png; path = ../assets/events.png; sourceTree = "<group>"; };
+		DC092BDDB1924F57BD433713 /* face.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = face.png; path = ../assets/face.png; sourceTree = "<group>"; };
+		E3934F9A10F043EF86D56B65 /* iconmenu.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = iconmenu.png; path = ../assets/iconmenu.png; sourceTree = "<group>"; };
 		EA1804002A94653271AD5C46 /* Pods-radiozero-radiozeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero-radiozeroTests.release.xcconfig"; path = "Target Support Files/Pods-radiozero-radiozeroTests/Pods-radiozero-radiozeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		EB7629DBD4734386A34C4DB8 /* radio2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = radio2.png; path = ../assets/radio2.png; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EE80D7BA00674DD8992B3DEC /* radio.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = radio.png; path = ../assets/radio.png; sourceTree = "<group>"; };
+		F538A1B0289243F7B782164C /* insta.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = insta.png; path = ../assets/insta.png; sourceTree = "<group>"; };
+		F84123E33AAE466ABF9F9DBD /* podcast.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = podcast.png; path = ../assets/podcast.png; sourceTree = "<group>"; };
+		FB30CE63A848422A885EE1DF /* volumen.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = volumen.png; path = ../assets/volumen.png; sourceTree = "<group>"; };
 		FDBADDF2746EE587437057E8 /* Pods-radiozero-radiozeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radiozero-radiozeroTests.debug.xcconfig"; path = "Target Support Files/Pods-radiozero-radiozeroTests/Pods-radiozero-radiozeroTests.debug.xcconfig"; sourceTree = "<group>"; };
-		29075BEF34934DE2930D5FFC /* envelope.png */ = {isa = PBXFileReference; name = "envelope.png"; path = "../assets/envelope.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D70E111FFAF8479AB41A4F6E /* events.png */ = {isa = PBXFileReference; name = "events.png"; path = "../assets/events.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CE9F6220A376463BB383CE39 /* home.png */ = {isa = PBXFileReference; name = "home.png"; path = "../assets/home.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5BFB17CC19C7411489D70EFE /* pantalla.png */ = {isa = PBXFileReference; name = "pantalla.png"; path = "../assets/pantalla.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F84123E33AAE466ABF9F9DBD /* podcast.png */ = {isa = PBXFileReference; name = "podcast.png"; path = "../assets/podcast.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6EDD72B18D55407DAB0851B8 /* releases.png */ = {isa = PBXFileReference; name = "releases.png"; path = "../assets/releases.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EE80D7BA00674DD8992B3DEC /* radio.png */ = {isa = PBXFileReference; name = "radio.png"; path = "../assets/radio.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6B1729CEEA4643DBAB52F682 /* blog.png */ = {isa = PBXFileReference; name = "blog.png"; path = "../assets/blog.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E3934F9A10F043EF86D56B65 /* iconmenu.png */ = {isa = PBXFileReference; name = "iconmenu.png"; path = "../assets/iconmenu.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4FDB4F19DFC546ACB197309A /* icono_radio.png */ = {isa = PBXFileReference; name = "icono_radio.png"; path = "../assets/icono_radio.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		741C662AFFC7412FA782074B /* logo.png */ = {isa = PBXFileReference; name = "logo.png"; path = "../assets/logo.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; name = "HelveticaNeue-Bold.ttf"; path = "../assets/HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		07D0C50797F34000B8367AD9 /* HelveticaNeue.ttf */ = {isa = PBXFileReference; name = "HelveticaNeue.ttf"; path = "../assets/HelveticaNeue.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +131,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		028B684D8C4144E995C48043 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29075BEF34934DE2930D5FFC /* envelope.png */,
+				D70E111FFAF8479AB41A4F6E /* events.png */,
+				5BFB17CC19C7411489D70EFE /* pantalla.png */,
+				F84123E33AAE466ABF9F9DBD /* podcast.png */,
+				6EDD72B18D55407DAB0851B8 /* releases.png */,
+				EE80D7BA00674DD8992B3DEC /* radio.png */,
+				6B1729CEEA4643DBAB52F682 /* blog.png */,
+				E3934F9A10F043EF86D56B65 /* iconmenu.png */,
+				4FDB4F19DFC546ACB197309A /* icono_radio.png */,
+				741C662AFFC7412FA782074B /* logo.png */,
+				7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */,
+				07D0C50797F34000B8367AD9 /* HelveticaNeue.ttf */,
+				02FBCE5D89594884AB179601 /* blog2.png */,
+				4125F3582B354E6DBF389EA4 /* caratula.jpeg */,
+				648AC7B37A1E4327BB7B9A9B /* contact.png */,
+				DC092BDDB1924F57BD433713 /* face.png */,
+				F538A1B0289243F7B782164C /* insta.png */,
+				210C79707F9E4A788BC24491 /* pause.png */,
+				7630ABA46CA24725B5F18294 /* play.png */,
+				EB7629DBD4734386A34C4DB8 /* radio2.png */,
+				CEC298537C2A4E599C545BC4 /* tv.png */,
+				CF4C310C9868495996BEB6EE /* twitt.png */,
+				122C37A5DA224B13A5A6AF8B /* volumen-mute.png */,
+				FB30CE63A848422A885EE1DF /* volumen.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* radiozero */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +183,6 @@
 				FDBADDF2746EE587437057E8 /* Pods-radiozero-radiozeroTests.debug.xcconfig */,
 				EA1804002A94653271AD5C46 /* Pods-radiozero-radiozeroTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,27 +227,6 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		028B684D8C4144E995C48043 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				29075BEF34934DE2930D5FFC /* envelope.png */,
-				D70E111FFAF8479AB41A4F6E /* events.png */,
-				CE9F6220A376463BB383CE39 /* home.png */,
-				5BFB17CC19C7411489D70EFE /* pantalla.png */,
-				F84123E33AAE466ABF9F9DBD /* podcast.png */,
-				6EDD72B18D55407DAB0851B8 /* releases.png */,
-				EE80D7BA00674DD8992B3DEC /* radio.png */,
-				6B1729CEEA4643DBAB52F682 /* blog.png */,
-				E3934F9A10F043EF86D56B65 /* iconmenu.png */,
-				4FDB4F19DFC546ACB197309A /* icono_radio.png */,
-				741C662AFFC7412FA782074B /* logo.png */,
-				7AD8C65777FB45A7926F283A /* HelveticaNeue-Bold.ttf */,
-				07D0C50797F34000B8367AD9 /* HelveticaNeue.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -295,7 +326,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				8ADD2EC36A724FC1AB6391F0 /* envelope.png in Resources */,
 				697FB76648BA44048906A146 /* events.png in Resources */,
-				AEC18909D6A943E18480FECC /* home.png in Resources */,
 				2147C24F4D764B7CA1A1EEA9 /* pantalla.png in Resources */,
 				9D9E937EF83B4E1CBE0146B2 /* podcast.png in Resources */,
 				292E19094D354114842D2A46 /* releases.png in Resources */,
@@ -306,6 +336,18 @@
 				86ED1A29634E4B43930B6ADB /* logo.png in Resources */,
 				9F87A6DB21B14EFDAA5CDC3B /* HelveticaNeue-Bold.ttf in Resources */,
 				407136C5C3C94EF6BAC380BB /* HelveticaNeue.ttf in Resources */,
+				8BF8CB304FE043419BA48D2E /* blog2.png in Resources */,
+				0DB1D9D2D5074D8FBB875F54 /* caratula.jpeg in Resources */,
+				359A735783C04527AF011478 /* contact.png in Resources */,
+				D6FE9DD6969D47F490BF7593 /* face.png in Resources */,
+				83043741693047D39757B4CD /* insta.png in Resources */,
+				2340A3B8C7504C38A8202075 /* pause.png in Resources */,
+				DBC5FFD8DFDF4906BC81669A /* play.png in Resources */,
+				18C5584C5BF249A2A8724E0E /* radio2.png in Resources */,
+				EE6ED4DA0ED34B7EAECF0AA0 /* tv.png in Resources */,
+				5485F26A3D3A4D1CB21E9E8F /* twitt.png in Resources */,
+				D236734D7BDB4F3B8F36BB0B /* volumen-mute.png in Resources */,
+				CE2BEB8498754DC1A3A6356D /* volumen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

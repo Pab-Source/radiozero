@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Modal,
   StatusBar,
+  Platform,
 } from 'react-native';
 
 import {navigate} from '../../navigator/NavigationService';
@@ -24,7 +25,7 @@ const Menu = () => {
         ...styles.container,
         backgroundColor: visible ? '#051439' : '#000000',
       }}>
-      <StatusBar backgroundColor={visible ? '#051439' : '#000000'} />
+      <StatusBar backgroundColor="#051439" barStyle="light-content" />
       <TouchableOpacity
         style={styles.wrapperIcon}
         onPress={() => setVisible(true)}>
@@ -159,8 +160,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentModal: {
-    marginTop: 60,
-    height: '75%',
+    elevation: 1,
+    marginTop: Platform.OS === 'ios' ? 105 : 60,
+    height: Platform.OS === 'ios' ? '70%' : '75%',
     borderColor: 'white',
     borderBottomWidth: 1,
     borderTopWidth: 1,

@@ -5,7 +5,6 @@ import Podcast from '../../screens/podcast';
 import Events from '../../screens/events';
 import Releases from '../../screens/releases';
 import Blog from '../../screens/blog';
-
 const styles = StyleSheet.create({
   rootStyle: {},
   labelStyle: {
@@ -23,23 +22,23 @@ const styles = StyleSheet.create({
 });
 export default {
   navigatorConfig: {
-    inactiveTintColor: 'white',
     activeTintColor: 'rgba(255, 255, 255, 0.1)',
+    inactiveTintColor: 'white',
     inactiveBackgroundColor: '#051439',
     activeBackgroundColor: '#051439',
     style: {
       height: 84,
-      tabStyle: {
-        borderRadius: 0,
-      },
-      labelStyle: {
-        color: '#FBFBFB',
-        fontFamily: 'HelveticaNeue',
-        fontWeight: 'bold',
-        fontSize: 12,
-        marginBottom: 5,
-        textTransform: 'uppercase',
-      },
+    },
+    tabStyle: {
+      borderRadius: 0,
+    },
+    labelStyle: {
+      color: '#FBFBFB',
+      fontFamily: 'HelveticaNeue',
+      fontWeight: 'bold',
+      fontSize: 12,
+      marginBottom: 5,
+      textTransform: 'uppercase',
     },
   },
   screens: [
@@ -54,6 +53,7 @@ export default {
             </Text>
           );
         },
+
         tabBarIcon: ({focused}) => {
           return (
             <Image

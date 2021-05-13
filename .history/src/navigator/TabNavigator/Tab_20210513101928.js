@@ -9,8 +9,9 @@ const RootBottomTabNavigator = () => {
   return (
     <>
       <Menu />
-      <Tab.Navigator options={routes.navigatorConfig}>
-        {routes.screen.map((item, index) => {
+      <Tab.Navigator options={routes.navigatorConfig.rootStyle}>
+        {routes.screens.map((item, index) => {
+          console.log(item);
           return <Tab.Screen key={index} {...item} />;
         })}
       </Tab.Navigator>
