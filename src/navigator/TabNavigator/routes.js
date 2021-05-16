@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
 });
+
 export default {
   navigatorConfig: {
     inactiveTintColor: 'white',
@@ -93,7 +94,7 @@ export default {
         tabBarLabel: ({focused}) => {
           return (
             <Text style={{...styles.labelStyle, opacity: focused ? 0.3 : 1}}>
-              Events
+              Programa
             </Text>
           );
         },
@@ -115,7 +116,7 @@ export default {
         tabBarLabel: ({focused}) => {
           return (
             <Text style={{...styles.labelStyle, opacity: focused ? 0.3 : 1}}>
-              Releases
+              Lanzamien
             </Text>
           );
         },

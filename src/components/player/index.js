@@ -1,24 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import PlayerContext from '../../statement/PlayerContext';
 
 const Player = () => {
-  const [isPlay, setIsPlay] = useState(true);
+  const {togglePlayer, playing, incrementVolume, decrementVolume, volumen} =
+    useContext(PlayerContext);
 
-  const [volumen, setVolumen] = useState(0);
-
-  const handleIncrement = () => {
-    if (volumen === 100) return;
-    setVolumen(volumen + 10);
-  };
-
-  const handleDecrement = () => {
-    if (volumen === 0) return;
-    setVolumen(volumen - 10);
-  };
-
-  const handlePlay = () => {
-    setIsPlay(!isPlay);
-  };
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
@@ -34,14 +21,14 @@ const Player = () => {
         <Text style={styles.textArtists}>Wake me up</Text>
         <Text style={styles.textTitle}>Avicci</Text>
         <View style={styles.wrapperControlVol}>
-          <TouchableOpacity onPress={handleDecrement} opacity={1}>
+          <TouchableOpacity onPress={decrementVolume} opacity={1}>
             <Image
               style={styles.icon}
               source={require('../../../assets/volumen-mute.png')}
             />
           </TouchableOpacity>
           <View style={styles.vol}>
-            <View style={{height: 3, backgroundColor: '#707070'}}></View>
+            <View style={{height: 3, backgroundColor: '#707070'}} />
 
             <View
               style={{
@@ -64,8 +51,7 @@ const Player = () => {
               />
             </View>
           </View>
-
-          <TouchableOpacity onPress={handleIncrement} opacity={1}>
+          <TouchableOpacity onPress={incrementVolume} opacity={1}>
             <Image
               style={styles.icon}
               source={require('../../../assets/volumen.png')}
@@ -76,8 +62,8 @@ const Player = () => {
       <TouchableOpacity
         opacity={1}
         style={styles.controlPlay}
-        onPress={handlePlay}>
-        {isPlay ? (
+        onPress={togglePlayer}>
+        {playing ? (
           <Image
             style={{height: 95, width: 95}}
             source={require('../../../assets/pause.png')}

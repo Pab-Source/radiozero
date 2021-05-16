@@ -9,7 +9,7 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
-
+import MenuPlayer from '../menuPlayer';
 import {navigate} from '../../navigator/NavigationService';
 
 const Menu = () => {
@@ -126,6 +126,7 @@ const Menu = () => {
                 source={require('../../../assets/twitt.png')}
               />
             </View>
+            <MenuPlayer />
           </View>
         </TouchableOpacity>
       </Modal>

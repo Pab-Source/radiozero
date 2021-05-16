@@ -10,7 +10,7 @@ const {screens} = routes;
 
 const RootBottomTabNavigator = () => {
   return (
-    <NavigationContainer>
+    <>
       <Menu />
       <Tab.Navigator
         initialRouteName="Radio"
@@ -19,7 +19,7 @@ const RootBottomTabNavigator = () => {
           return <Tab.Screen key={index} {...item} />;
         })}
       </Tab.Navigator>
-    </NavigationContainer>
+    </>
   );
 };
 
