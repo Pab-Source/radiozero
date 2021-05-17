@@ -9,13 +9,7 @@ const Radio = () => {
         flex: Platform.OS === 'ios' ? 0 : 1,
       }}
       style={{flex: 1, backgroundColor: '#051439'}}>
-      <View
-        style={{
-          backgroundColor: '#06143c',
-          flex: 1,
-          alignItems: 'center',
-          paddingTop: Platform.OS === 'ios' ? 33 : 63,
-        }}>
+      <View style={styles.content}>
         <Player />
 
         <View style={styles.socialWrapper}>
@@ -42,6 +36,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     height: 200,
+  },
+  content: {
+    backgroundColor: '#06143c',
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'ios' ? 33 : 63,
   },
 });
 export default Radio;

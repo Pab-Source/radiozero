@@ -3,8 +3,14 @@ import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 
 const Player = () => {
-  const {togglePlayer, playing, incrementVolume, decrementVolume, volumen} =
-    useContext(PlayerContext);
+  const {
+    togglePlayer,
+    infoArtist,
+    playing,
+    incrementVolume,
+    decrementVolume,
+    volumen,
+  } = useContext(PlayerContext);
 
   return (
     <View style={styles.wrapper}>
@@ -16,10 +22,18 @@ const Player = () => {
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
           }}
-          source={require('../../../assets/caratula.jpeg')}
+          source={
+            infoArtist?.image
+              ? {uri: infoArtist?.image}
+              : require('../../../assets/logo.png')
+          }
         />
-        <Text style={styles.textArtists}>Wake me up</Text>
-        <Text style={styles.textTitle}>Avicci</Text>
+        <Text style={styles.textArtists}>
+          {infoArtist?.title || 'Radio Zero'}
+        </Text>
+        <Text style={styles.textTitle}>
+          {infoArtist?.artist || 'Radio Zero'}
+        </Text>
         <View style={styles.wrapperControlVol}>
           <TouchableOpacity onPress={decrementVolume} opacity={1}>
             <Image

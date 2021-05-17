@@ -6,6 +6,7 @@ import {GlobalState} from './src/statement/GlobalContext';
 import {GlobalPlayer} from './src/statement/PlayerContext';
 
 LogBox.ignoreAllLogs(true);
+
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();

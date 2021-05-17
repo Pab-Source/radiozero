@@ -52,4 +52,26 @@ const constructorApi = queryObj => {
   }, {});
 };
 
-export default constructorApi(queries);
+const getArtist = async () => {
+  const request = await fetch('http://radiozero.fm/ftp/CurrentSong.txt');
+  const response = await request.text();
+
+  const dividerText = response.split('-');
+  const formatData = dividerText.reduce((acc, item, index) => {
+    return index ? {...acc, title: item.trim()} : {...acc, artist: item.trim()};
+  }, {});
+  const getImage = await fetch(
+    `https://itunes.apple.com/search?term=${formatData.artist}&limit=1`,
+  );
+  const responseImage = await getImage.json();
+
+  console.log(responseImage);
+
+  const image = responseImage.results[0]?.artworkUrl100;
+  return {
+    ...formatData,
+    image,
+  };
+};
+
+export default {...constructorApi(queries), getArtist};

@@ -3,18 +3,24 @@ import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 
 const MenuPlayer = () => {
-  const {togglePlayer} = useContext(PlayerContext);
+  const {togglePlayer, infoArtist} = useContext(PlayerContext);
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../../assets/caratula.jpeg')}
+        source={
+          infoArtist?.image
+            ? {uri: infoArtist?.image}
+            : require('../../../assets/caratula.jpeg')
+        }
         style={styles.image}
       />
       <View style={styles.containerRight}>
         <View style={styles.infoArtist}>
-          <Text style={styles.title}>Wake me up</Text>
-          <Text style={styles.artist}>Avicci</Text>
+          <Text style={styles.title}>{infoArtist?.title || 'Radio Zero'}</Text>
+          <Text style={styles.artist}>
+            {infoArtist?.artist || 'Radio Zero'}
+          </Text>
         </View>
         <TouchableOpacity onPress={togglePlayer}>
           <Image
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerRight: {
-    flexBasis: '82%',
+    flexBasis: '81%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -45,6 +51,7 @@ const styles = StyleSheet.create({
     height: 63,
   },
   title: {
+    maxWidth: '90%',
     color: 'white',
     fontFamily: 'HelveticaNeue',
     fontWeight: 'bold',
