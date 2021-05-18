@@ -29,8 +29,6 @@ const DetailPodcast = ({
     ?.filter(i => i.includes('upload'))[0]
     ?.slice(5, -5);
 
-  console.log(mp3);
-
   const playPodcast = async () => {
     setIsPlaying(true);
   };
@@ -54,14 +52,21 @@ const DetailPodcast = ({
   }, [isPlaying, play, pause, playing]);
 
   useEffect(() => {
+    if (playing) {
+      pausePodcast();
+    } else {
+      if (!isPlaying) {
+        playPodcast();
+      }
+    }
     navigation.addListener('blur', () => {
-      togglePodcast();
+      !playing && togglePodcast();
     });
-  }, [navigation, togglePodcast]);
+  }, [navigation, togglePodcast, playing, isPlaying]);
 
   return (
     <ScrollView style={styles.container}>
-      <Menu />
+      <Menu toggle={togglePodcast} />
       <StatusBar backgroundColor="#000000" animated={true} />
       <View style={styles.wrapperImage}>
         <Image source={{uri: item.dataImage.image}} style={styles.image} />

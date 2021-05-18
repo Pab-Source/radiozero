@@ -12,7 +12,7 @@ import {
 import MenuPlayer from '../menuPlayer';
 import {navigate} from '../../navigator/NavigationService';
 
-const Menu = () => {
+const Menu = props => {
   const [visible, setVisible] = useState(false);
 
   const handleNavigate = route => {

@@ -1,5 +1,12 @@
 import React, {useContext} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Platform,
+} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 
 const Player = () => {
@@ -108,7 +115,7 @@ const styles = StyleSheet.create({
   },
   controlPlay: {
     zIndex: 1,
-    marginTop: 10,
+    marginTop: Platform.OS === 'ios' ? 20 : 10,
     top: -50,
   },
   wrapperControlVol: {

@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 
 const MenuPlayer = () => {
-  const {togglePlayer, infoArtist} = useContext(PlayerContext);
+  const {togglePlayer, playing, infoArtist} = useContext(PlayerContext);
 
   return (
     <View style={styles.container}>
@@ -22,11 +22,19 @@ const MenuPlayer = () => {
             {infoArtist?.artist || 'Radio Zero'}
           </Text>
         </View>
+
         <TouchableOpacity onPress={togglePlayer}>
-          <Image
-            source={require('../../../assets/icono_radio.png')}
-            style={styles.play}
-          />
+          {playing ? (
+            <Image
+              style={styles.play}
+              source={require('../../../assets/pause.png')}
+            />
+          ) : (
+            <Image
+              source={require('../../../assets/play.png')}
+              style={styles.play}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </View>
