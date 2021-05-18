@@ -53,24 +53,36 @@ const constructorApi = queryObj => {
 };
 
 const getArtist = async () => {
-  const request = await fetch('http://radiozero.fm/ftp/CurrentSong.txt');
+  const request = await fetch('http://radiozero.fm/ftp/CurrentSong.txt', {
+    'Content-Type': 'text/plain',
+  });
   const response = await request.text();
 
+  console.log(response);
   const dividerText = response.split('-');
-  const formatData = dividerText.reduce((acc, item, index) => {
-    return index ? {...acc, title: item.trim()} : {...acc, artist: item.trim()};
-  }, {});
+
+  const formatData =
+    dividerText.length === 2
+      ? dividerText.reduce((acc, item, index) => {
+          return index
+            ? {
+                ...acc,
+                title: item ? item.trim() : 'Radio Zero',
+              }
+            : {...acc, artist: item ? item.trim() : 'Radio Zero'};
+        }, {})
+      : {title: 'Radio Zero', artist: 'Radio Zero', image: ''};
+
+  /* 
   const getImage = await fetch(
     `https://itunes.apple.com/search?term=${formatData.artist}&limit=1`,
   );
   const responseImage = await getImage.json();
-
-  console.log(responseImage);
-
   const image = responseImage.results[0]?.artworkUrl100;
+  */
   return {
     ...formatData,
-    image,
+    image: '',
   };
 };
 

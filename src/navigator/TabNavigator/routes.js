@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     color: '#FBFBFB',
     fontFamily: 'HelveticaNeue',
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: 8,
     marginBottom: 5,
     textTransform: 'uppercase',
   },
@@ -59,7 +59,11 @@ export default {
           return (
             <Image
               source={require('../../../assets/icono_radio.png')}
-              style={{height: 50, width: 50, opacity: focused ? 0.3 : 1}}
+              style={{
+                height: 50,
+                width: 50,
+                opacity: focused ? 0.3 : 1,
+              }}
             />
           );
         },
@@ -94,7 +98,7 @@ export default {
         tabBarLabel: ({focused}) => {
           return (
             <Text style={{...styles.labelStyle, opacity: focused ? 0.3 : 1}}>
-              Programa
+              Programacion
             </Text>
           );
         },
@@ -116,7 +120,7 @@ export default {
         tabBarLabel: ({focused}) => {
           return (
             <Text style={{...styles.labelStyle, opacity: focused ? 0.3 : 1}}>
-              Lanzamien
+              Lanzamientos
             </Text>
           );
         },

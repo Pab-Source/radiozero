@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {ScrollView, StyleSheet, View, ActivityIndicator} from 'react-native';
 import GlobalState from '../../statement/GlobalContext';
-import CardBlog from '../../components/cardBlog';
+import CardPodcast from '../../components/cardPodcast';
 
 const Podcast = () => {
   const {
@@ -21,7 +21,7 @@ const Podcast = () => {
       contentContainerStyle={{paddingBottom: 40}}
       style={styles.container}>
       {dataPodcast.map(item => (
-        <CardBlog key={item.id} item={item} />
+        <CardPodcast key={item.id} item={item} />
       ))}
     </ScrollView>
   );

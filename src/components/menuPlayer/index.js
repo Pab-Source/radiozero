@@ -11,7 +11,7 @@ const MenuPlayer = () => {
         source={
           infoArtist?.image
             ? {uri: infoArtist?.image}
-            : require('../../../assets/caratula.jpeg')
+            : require('../../../assets/logo.png')
         }
         style={styles.image}
       />

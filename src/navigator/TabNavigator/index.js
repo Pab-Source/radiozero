@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Menu from '../../components/menu';
 import routes from './routes';
-import {NavigationContainer} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 

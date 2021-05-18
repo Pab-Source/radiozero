@@ -33,6 +33,7 @@ const Radio = () => {
 
 const styles = StyleSheet.create({
   socialWrapper: {
+    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     height: 200,

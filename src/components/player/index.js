@@ -21,6 +21,7 @@ const Player = () => {
             height: '60%',
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
+            resizeMode: infoArtist?.image ? 'cover' : 'contain',
           }}
           source={
             infoArtist?.image
@@ -43,7 +44,6 @@ const Player = () => {
           </TouchableOpacity>
           <View style={styles.vol}>
             <View style={{height: 3, backgroundColor: '#707070'}} />
-
             <View
               style={{
                 position: 'absolute',
@@ -96,12 +96,11 @@ const Player = () => {
 const styles = StyleSheet.create({
   wrapper: {
     width: 327,
-    height: 500,
+    height: '78%',
     alignItems: 'center',
   },
   container: {
     backgroundColor: 'white',
-    height: 446,
     width: 327,
     borderColor: '#FFFDFD',
     borderRadius: 16,
@@ -109,11 +108,11 @@ const styles = StyleSheet.create({
   },
   controlPlay: {
     zIndex: 1,
-    position: 'absolute',
-    bottom: 0,
+    marginTop: 10,
+    top: -50,
   },
   wrapperControlVol: {
-    marginTop: 32,
+    marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },

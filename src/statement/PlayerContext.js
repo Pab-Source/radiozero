@@ -9,19 +9,24 @@ export const GlobalPlayer = ({children}) => {
   const [playing, setPlaying] = useState(false);
   const [loadingPlay, setLoadingPlay] = useState(false);
   const [volumen, setVolumen] = useState(50);
+
   const [infoArtist, setInfoArtist] = useState({
     title: 'Radio Zero',
     artist: 'Radio Zero',
   });
 
   const obtainArtist = async () => {
-    const response = await WpApi.getArtist();
-    setInfoArtist(response);
+    try {
+      const response = await WpApi.getArtist();
+      console.log(response);
+      setInfoArtist(response);
+    } catch (err) {
+      setInfoArtist({title: 'Radio Zero', artist: 'Radio Zero'});
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(obtainArtist, 30000);
-    return () => clearInterval(interval);
+    obtainArtist();
   }, []);
 
   const incrementVolume = () => {
@@ -54,6 +59,12 @@ export const GlobalPlayer = ({children}) => {
     initialPlay && SoundPlayer.setVolume(volumen / 100);
   };
 
+  const pauseOnPodcast = () => {
+    SoundPlayer.pause();
+    setPlaying(false);
+    setInitialPlay(true);
+  };
+
   const pause = () => {
     setPlaying(false);
     SoundPlayer.pause();
@@ -79,6 +90,9 @@ export const GlobalPlayer = ({children}) => {
         volumen,
         loadingPlay,
         infoArtist,
+        pauseOnPodcast,
+        play,
+        pause,
       }}
     />
   );

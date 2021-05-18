@@ -84,16 +84,6 @@ const Menu = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => handleNavigate('Zero')}
-              style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/tv.png')}
-              />
-              <Text style={styles.itemText}>ZERO TV</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
               onPress={() => handleNavigate('Blog')}
               style={styles.item}>
               <Image

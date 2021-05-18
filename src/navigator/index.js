@@ -2,6 +2,7 @@ import React from 'react';
 import Contact from '../screens/contact';
 import Zero from '../screens/zero';
 import DetailsBlog from '../screens/detailsBlog';
+import DetailsPodcast from '../screens/detailsPodcast';
 import RootBottomTabNavigator from './TabNavigator';
 import {navigatorRef} from './NavigationService';
 import {NavigationContainer} from '@react-navigation/native';
@@ -26,6 +27,11 @@ const RootNavigator = () => {
         <Stack.Screen
           name="DetailsBlog"
           component={DetailsBlog}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DetailsPodcast"
+          component={DetailsPodcast}
           options={{headerShown: false}}
         />
         <Stack.Screen
