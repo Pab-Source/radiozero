@@ -5,16 +5,14 @@ import routes from './routes';
 
 const Tab = createBottomTabNavigator();
 
-const {screens} = routes;
-
 const RootBottomTabNavigator = () => {
   return (
     <>
       <Menu />
       <Tab.Navigator
         initialRouteName="Radio"
-        tabBarOptions={{...routes.navigatorConfig}}>
-        {screens.map((item, index) => {
+        tabBarOptions={routes.navigatorConfig}>
+        {routes.screens.map((item, index) => {
           return <Tab.Screen key={index} {...item} />;
         })}
       </Tab.Navigator>

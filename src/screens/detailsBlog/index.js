@@ -17,25 +17,33 @@ const DetailBlog = ({
   },
 }) => {
   return (
-    <ScrollView style={styles.container}>
+    <>
       <Menu />
-      <StatusBar backgroundColor="#000000" animated={true} />
-      <View style={styles.wrapperImage}>
-        <Image source={{uri: item.dataImage.image}} style={styles.image} />
-        <Text style={styles.textTitle}>{item.title.rendered}</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <StatusBar backgroundColor="#000000" animated={true} />
+        <View style={styles.wrapperImage}>
+          <Image source={{uri: item.dataImage.image}} style={styles.image} />
+          <Text style={styles.textTitle}>{item.title.rendered}</Text>
+        </View>
 
-      <View style={styles.contentArticule}>
-        <HTML
-          imagesMaxWidth={Dimensions.get('window').width}
-          source={{
-            html: item.content.rendered,
-          }}
-          contentWidth={Dimensions.get('window').width}
-          ignoredTags={[...IGNORED_TAGS, 'iframe', 'img', 'picture', 'figure']}
-        />
-      </View>
-    </ScrollView>
+        <View style={styles.contentArticule}>
+          <HTML
+            imagesMaxWidth={Dimensions.get('window').width}
+            source={{
+              html: item.content.rendered,
+            }}
+            contentWidth={Dimensions.get('window').width}
+            ignoredTags={[
+              ...IGNORED_TAGS,
+              'iframe',
+              'img',
+              'picture',
+              'figure',
+            ]}
+          />
+        </View>
+      </ScrollView>
+    </>
   );
 };
 

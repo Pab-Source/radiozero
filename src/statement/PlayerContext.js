@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import WpApi from '../constants';
+import React, {useState} from 'react';
 import SoundPlayer from 'react-native-sound-player';
 
 export const PlayerContext = React.createContext({});
@@ -9,25 +8,6 @@ export const GlobalPlayer = ({children}) => {
   const [playing, setPlaying] = useState(false);
   const [loadingPlay, setLoadingPlay] = useState(false);
   const [volumen, setVolumen] = useState(50);
-
-  const [infoArtist, setInfoArtist] = useState({
-    title: 'Radio Zero',
-    artist: 'Radio Zero',
-  });
-
-  const obtainArtist = async () => {
-    try {
-      const response = await WpApi.getArtist();
-      console.log(response);
-      setInfoArtist(response);
-    } catch (err) {
-      setInfoArtist({title: 'Radio Zero', artist: 'Radio Zero'});
-    }
-  };
-
-  useEffect(() => {
-    obtainArtist();
-  }, []);
 
   const incrementVolume = () => {
     if (volumen === 100) {
@@ -89,7 +69,6 @@ export const GlobalPlayer = ({children}) => {
         decrementVolume,
         volumen,
         loadingPlay,
-        infoArtist,
         pauseOnPodcast,
         play,
         pause,

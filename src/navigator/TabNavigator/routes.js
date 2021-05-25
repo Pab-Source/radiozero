@@ -1,5 +1,6 @@
 import React from 'react';
-import {Image, StyleSheet, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {StyleSheet, Text} from 'react-native';
 import Radio from '../../screens/radio';
 import Podcast from '../../screens/podcast';
 import Events from '../../screens/events';
@@ -57,13 +58,11 @@ export default {
         },
         tabBarIcon: ({focused}) => {
           return (
-            <Image
-              source={require('../../../assets/icono_radio.png')}
-              style={{
-                height: 50,
-                width: 50,
-                opacity: focused ? 0.3 : 1,
-              }}
+            <Icon
+              name="play-circle"
+              size={42}
+              color="white"
+              style={{opacity: focused ? 0.3 : 1}}
             />
           );
         },
@@ -83,9 +82,11 @@ export default {
 
         tabBarIcon: ({focused}) => {
           return (
-            <Image
-              source={require('../../../assets/podcast.png')}
-              style={{...styles.styleIcon, opacity: focused ? 0.3 : 1}}
+            <Icon
+              name="podcast"
+              size={42}
+              color="white"
+              style={{opacity: focused ? 0.3 : 1}}
             />
           );
         },
@@ -105,9 +106,11 @@ export default {
 
         tabBarIcon: ({focused}) => {
           return (
-            <Image
-              source={require('../../../assets/events.png')}
-              style={{...styles.styleIcon, opacity: focused ? 0.3 : 1}}
+            <Icon
+              name="calendar-alt"
+              size={42}
+              color="white"
+              style={{opacity: focused ? 0.3 : 1}}
             />
           );
         },
@@ -127,9 +130,11 @@ export default {
 
         tabBarIcon: ({focused}) => {
           return (
-            <Image
-              source={require('../../../assets/releases.png')}
-              style={{...styles.styleIcon, opacity: focused ? 0.3 : 1}}
+            <Icon
+              name="compact-disc"
+              size={42}
+              color="white"
+              style={{opacity: focused ? 0.3 : 1}}
             />
           );
         },
@@ -149,9 +154,11 @@ export default {
 
         tabBarIcon: ({focused}) => {
           return (
-            <Image
-              source={require('../../../assets/blog.png')}
-              style={{...styles.styleIcon, opacity: focused ? 0.3 : 1}}
+            <Icon
+              name="blogger-b"
+              size={42}
+              color="white"
+              style={{opacity: focused ? 0.3 : 1}}
             />
           );
         },

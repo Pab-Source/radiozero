@@ -54,10 +54,6 @@ const DetailPodcast = ({
   useEffect(() => {
     if (playing) {
       pausePodcast();
-    } else {
-      if (!isPlaying) {
-        playPodcast();
-      }
     }
     navigation.addListener('blur', () => {
       !playing && togglePodcast();
@@ -69,7 +65,20 @@ const DetailPodcast = ({
       <Menu toggle={togglePodcast} />
       <StatusBar backgroundColor="#000000" animated={true} />
       <View style={styles.wrapperImage}>
-        <Image source={{uri: item.dataImage.image}} style={styles.image} />
+        <Image
+          source={
+            item.dataImage.image
+              ? {uri: item.dataImage.image}
+              : {
+                  uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+                }
+          }
+          style={
+            item.dataImage.image
+              ? styles.image
+              : {...styles.image, resizeMode: 'contain'}
+          }
+        />
         <Text style={styles.textTitle}>{item.title.rendered}</Text>
       </View>
 

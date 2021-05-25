@@ -9,11 +9,17 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
+import {useRoute} from '@react-navigation/native';
 import MenuPlayer from '../menuPlayer';
-import {navigate} from '../../navigator/NavigationService';
+import {navigate, goBack} from '../../navigator/NavigationService';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const Menu = props => {
+const Menu = () => {
   const [visible, setVisible] = useState(false);
+
+  const {name} = useRoute();
+
+  const condition = name === 'DetailsBlog' || name === 'DetailsPodcast';
 
   const handleNavigate = route => {
     setVisible(false);
@@ -37,9 +43,22 @@ const Menu = props => {
       <View style={styles.wrapperLogo}>
         <Image
           style={styles.logo}
-          source={require('../../../assets/logo.png')}
+          source={{
+            uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+          }}
         />
       </View>
+
+      {condition && (
+        <TouchableOpacity
+          onPress={() => {
+            goBack();
+          }}>
+          <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold'}}>
+            X
+          </Text>
+        </TouchableOpacity>
+      )}
       <Modal visible={visible} style={styles.modal} transparent>
         <TouchableOpacity
           style={{flex: 1}}
@@ -49,56 +68,39 @@ const Menu = props => {
             <TouchableOpacity
               onPress={() => handleNavigate('Radio')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/icono_radio.png')}
-              />
+              <Icon name="play-circle" size={27} color="white" />
               <Text style={styles.itemText}>RADIO</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleNavigate('Events')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/events.png')}
-              />
-              <Text style={styles.itemText}>EVENTOS</Text>
+              <Icon name="calendar-alt" size={27} color="white" />
+              <Text style={styles.itemText}>PROGRAMACIÓN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleNavigate('Releases')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/releases.png')}
-              />
+              <Icon name="compact-disc" size={27} color="white" />
               <Text style={styles.itemText}>LANZAMIENTOS</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleNavigate('Podcast')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/radio2.png')}
-              />
+              <Icon name="podcast" size={27} color="white" />
+
               <Text style={styles.itemText}>PODCAST</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={() => handleNavigate('Blog')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/blog2.png')}
-              />
+              <Icon name="blogger-b" size={27} color="white" />
               <Text style={styles.itemText}>BLOG</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleNavigate('Contact')}
               style={styles.item}>
-              <Image
-                style={{width: 27, height: 27}}
-                source={require('../../../assets/contact.png')}
-              />
+              <Icon name="envelope-open" size={27} color="white" />
               <Text style={styles.itemText}>CONTACTANOS</Text>
             </TouchableOpacity>
 

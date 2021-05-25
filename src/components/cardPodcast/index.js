@@ -14,7 +14,24 @@ const CardPodcast = ({item, screen = ''}) => {
           ? null
           : navigation.navigate('DetailsPodcast', {item})
       }>
-      <Image source={{uri: item.dataImage.image}} style={styles.image} />
+      <Image
+        source={
+          item.dataImage.image
+            ? {uri: item.dataImage.image}
+            : {
+                uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+              }
+        }
+        style={
+          item.dataImage.image
+            ? styles.image
+            : {
+                ...styles.image,
+                backgroundColor: 'white',
+                resizeMode: 'center',
+              }
+        }
+      />
       <Text style={styles.titleImage}>{item.title.rendered}</Text>
     </TouchableOpacity>
   );

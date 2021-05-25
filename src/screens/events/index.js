@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet, ActivityIndicator, ScrollView} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, StyleSheet, ActivityIndicator, FlatList} from 'react-native';
 import GlobalState from '../../statement/GlobalContext';
 import CardBlog from '../../components/cardBlog';
 
 const Events = () => {
   const {
-    events: {isLoadingEvents, dataEvents},
+    events: {isLoadingEvents, dataEvents, errorEvents, getDataEvents},
   } = useContext(GlobalState);
+
+  const [number, setNumber] = useState(2);
 
   if (isLoadingEvents) {
     return (
@@ -17,13 +19,18 @@ const Events = () => {
   }
 
   return (
-    <ScrollView
+    <FlatList
+      onEndReached={() => {
+        getDataEvents(number);
+        !errorEvents && setNumber(number + 1);
+      }}
+      onEndReachedThreshold={0.1}
       contentContainerStyle={{paddingBottom: 40}}
-      style={styles.container}>
-      {dataEvents.map(item => (
-        <CardBlog key={item.id} item={item} screen="events" />
-      ))}
-    </ScrollView>
+      style={styles.container}
+      data={dataEvents}
+      renderItem={({item}) => <CardBlog item={item} screen="events" />}
+      keyExtractor={item => item.id}
+    />
   );
 };
 

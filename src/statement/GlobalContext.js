@@ -1,54 +1,25 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import WpApi from '../constants';
+import React, {useEffect, useCallback} from 'react';
+import {Linking} from 'react-native';
+import {
+  usePodcastState,
+  useBlogState,
+  useEventsState,
+  useReleasesState,
+  useInfoArtist,
+} from './hooks';
+
+const instagramUrl = 'https://instagram.com/radiozero_arg';
+const facebookUrl = 'https://www.facebook.com/RadioZero91.1';
+const twitterUrl = 'https://twitter.com/RadioZero911';
 
 const Context = React.createContext({});
 
 export const GlobalState = ({children}) => {
-  const [isLoadingBlog, setIsLoadingBlog] = useState(true);
-  const [isLoadingPodcast, setIsLoadingPodcast] = useState(true);
-  const [isLoadingEvents, setIsLoadingEvents] = useState(true);
-  const [isLoadingReleases, setIsLoadingReleases] = useState(true);
-
-  const [dataBlog, setDataBlog] = useState([]);
-  const [dataPodcast, setDataPodcast] = useState([]);
-  const [dataEvents, setDataEvents] = useState([]);
-  const [dataReleases, setDataReleases] = useState([]);
-
-  const handleSetDataBlog = useCallback(async () => {
-    if (dataBlog.length > 0) {
-      return;
-    }
-    const dataResponse = await WpApi.blog();
-    setDataBlog(dataResponse);
-    setIsLoadingBlog(false);
-  }, [dataBlog]);
-
-  const handleSetDataPodcast = useCallback(async () => {
-    if (dataPodcast.length > 0) {
-      return;
-    }
-    const dataResponse = await WpApi.podcast();
-    setDataPodcast(dataResponse);
-    setIsLoadingPodcast(false);
-  }, [dataPodcast]);
-
-  const handleSetDataEvents = useCallback(async () => {
-    if (dataEvents.length > 0) {
-      return;
-    }
-    const dataResponse = await WpApi.shows();
-    setDataEvents(dataResponse);
-    setIsLoadingEvents(false);
-  }, [dataEvents]);
-
-  const handleSetDataReleases = useCallback(async () => {
-    if (dataReleases.length > 0) {
-      return;
-    }
-    const dataResponse = await WpApi.releases();
-    setDataReleases(dataResponse);
-    setIsLoadingReleases(false);
-  }, [dataReleases]);
+  const {handleSetDataPodcast, ...podcast} = usePodcastState();
+  const {handleSetDataBlog, ...blog} = useBlogState();
+  const {handleSetDataEvents, ...events} = useEventsState();
+  const {handleSetDataReleases, ...releases} = useReleasesState();
+  const {infoArtist} = useInfoArtist();
 
   const getData = useCallback(() => {
     handleSetDataReleases();
@@ -66,13 +37,30 @@ export const GlobalState = ({children}) => {
     getData();
   }, [getData]);
 
+  const openUrl = useCallback(
+    url => async () => {
+      const supported = await Linking.canOpenURL(url);
+
+      if (supported) {
+        await Linking.openURL(url);
+      }
+    },
+    [],
+  );
+
   return (
     <Context.Provider
       value={{
-        blog: {dataBlog, isLoadingBlog, handleSetDataBlog},
-        podcast: {dataPodcast, isLoadingPodcast, handleSetDataPodcast},
-        events: {dataEvents, isLoadingEvents, handleSetDataEvents},
-        releases: {dataReleases, isLoadingReleases, handleSetDataReleases},
+        blog,
+        podcast,
+        events,
+        releases,
+        infoArtist,
+        social: {
+          openInstagram: openUrl(instagramUrl),
+          openFacebook: openUrl(facebookUrl),
+          openTwitter: openUrl(twitterUrl),
+        },
       }}>
       {children}
     </Context.Provider>

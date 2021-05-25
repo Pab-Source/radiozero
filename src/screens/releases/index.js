@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
-import {View, ActivityIndicator, StyleSheet, ScrollView} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, ActivityIndicator, StyleSheet, FlatList} from 'react-native';
 import CardBlog from '../../components/cardBlog';
 import GlobalState from '../../statement/GlobalContext';
 
 const Releases = () => {
   const {
-    releases: {isLoadingReleases, dataReleases},
+    releases: {isLoadingReleases, dataReleases, errorReleases, getDataReleases},
   } = useContext(GlobalState);
+
+  const [number, setNumber] = useState(2);
 
   if (isLoadingReleases) {
     return (
@@ -17,13 +19,18 @@ const Releases = () => {
   }
 
   return (
-    <ScrollView
+    <FlatList
+      onEndReached={() => {
+        getDataReleases(number);
+        !errorReleases && setNumber(number + 1);
+      }}
+      onEndReachedThreshold={0.1}
       contentContainerStyle={{paddingBottom: 40}}
-      style={styles.container}>
-      {dataReleases.map(item => (
-        <CardBlog key={item.id} item={item} />
-      ))}
-    </ScrollView>
+      style={styles.container}
+      data={dataReleases}
+      renderItem={({item}) => <CardBlog item={item} />}
+      keyExtractor={item => item.id}
+    />
   );
 };
 

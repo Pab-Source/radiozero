@@ -5,19 +5,26 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  Platform,
+  ActivityIndicator,
 } from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
+import GlobalState from '../../statement/GlobalContext';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Player = () => {
   const {
     togglePlayer,
-    infoArtist,
     playing,
     incrementVolume,
     decrementVolume,
     volumen,
+    loadingPlay,
   } = useContext(PlayerContext);
+
+  const {
+    infoArtist,
+    social: {openInstagram, openFacebook, openTwitter},
+  } = useContext(GlobalState);
 
   return (
     <View style={styles.wrapper}>
@@ -25,7 +32,8 @@ const Player = () => {
         <Image
           style={{
             width: 327,
-            height: '60%',
+            flex: 1,
+            height: 200,
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
             resizeMode: infoArtist?.image ? 'cover' : 'contain',
@@ -33,7 +41,9 @@ const Player = () => {
           source={
             infoArtist?.image
               ? {uri: infoArtist?.image}
-              : require('../../../assets/logo.png')
+              : {
+                  uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+                }
           }
         />
         <Text style={styles.textArtists}>
@@ -55,7 +65,7 @@ const Player = () => {
               style={{
                 position: 'absolute',
                 width: `${volumen}%`,
-                height: 5,
+                height: 4,
                 backgroundColor: '#060F2F',
                 justifyContent: 'center',
               }}>
@@ -80,31 +90,64 @@ const Player = () => {
           </TouchableOpacity>
         </View>
       </View>
+      {loadingPlay && (
+        <ActivityIndicator style={{marginTop: 10}} size="large" color="white" />
+      )}
       <TouchableOpacity
         opacity={1}
         style={styles.controlPlay}
         onPress={togglePlayer}>
         {playing ? (
-          <Image
+          <Icon
+            name="pause-circle"
+            size={95}
+            color="white"
             style={{height: 95, width: 95}}
-            source={require('../../../assets/pause.png')}
           />
         ) : (
-          <Image
+          <Icon
+            name="play-circle"
+            size={95}
+            color="white"
             style={{height: 95, width: 95}}
-            source={require('../../../assets/play.png')}
           />
         )}
       </TouchableOpacity>
+      <View style={styles.socialWrapper}>
+        <TouchableOpacity onPress={openInstagram}>
+          <Image
+            style={{height: 80, width: 80, marginRight: 30}}
+            source={require('../../../assets/insta.png')}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openFacebook}>
+          <Image
+            style={{height: 80, width: 80, marginRight: 30}}
+            source={require('../../../assets/face.png')}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openTwitter}>
+          <Image
+            style={{height: 80, width: 80}}
+            source={require('../../../assets/twitt.png')}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  socialWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 10,
+    height: 200,
+  },
   wrapper: {
     width: 327,
-    height: '78%',
     alignItems: 'center',
+    height: '30%',
   },
   container: {
     backgroundColor: 'white',
@@ -112,14 +155,16 @@ const styles = StyleSheet.create({
     borderColor: '#FFFDFD',
     borderRadius: 16,
     alignItems: 'center',
+    paddingHorizontal: 1,
+    paddingBottom: 30,
   },
   controlPlay: {
+    marginTop: 10,
     zIndex: 1,
-    marginTop: Platform.OS === 'ios' ? 20 : 10,
-    top: -50,
+    top: 0,
   },
   wrapperControlVol: {
-    marginTop: 10,
+    marginVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },

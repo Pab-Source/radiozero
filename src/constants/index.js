@@ -1,17 +1,8 @@
-const BASE_URL = 'https://radiozero.fm/wp-json/wp/v2/';
+import axios from 'axios';
 
-const queries = {
-  shows: 'shows',
-  releases: 'posts?categories=393',
-  blog: 'posts',
-  podcast: 'podcast',
-};
-
-const getMedia = async id => {
-  const request = await fetch(`${BASE_URL}media/${id}`);
-  const response = await request.json();
-  return response;
-};
+const axiosInstance = axios.create({
+  baseURL: 'https://radiozero.fm/wp-json/wp/v2',
+});
 
 const mappingDataMedia = async ({
   title,
@@ -20,70 +11,78 @@ const mappingDataMedia = async ({
   excerpt,
   featured_media,
 }) => {
-  const {guid, description} = await getMedia(featured_media);
-  return {
-    title,
-    id,
-    content,
-    excerpt,
-    dataImage: {image: guid.rendered, description: description.rendered},
-  };
-};
-
-const createRequest = item => {
-  return async () => {
-    const request = await fetch(`${BASE_URL}${item}`);
-    const response = await request.json();
-    const dataWithMedia = await Promise.all(response.map(mappingDataMedia));
-    return dataWithMedia;
-  };
-};
-
-const constructorApi = queryObj => {
-  const querysList = Object.keys(queryObj);
-
-  const valuesList = Object.values(queryObj);
-
-  return valuesList.reduce((acc, item, index) => {
+  try {
+    const {
+      data: {source_url, description},
+    } = await axiosInstance.get(`/media/${featured_media}`);
     return {
-      ...acc,
-      [querysList[index]]: createRequest(item),
+      title,
+      id,
+      content,
+      excerpt,
+      dataImage: {image: source_url, description: description.rendered},
     };
-  }, {});
+  } catch (err) {
+    return {
+      title,
+      id,
+      content,
+      excerpt,
+      dataImage: {image: null, description: null},
+    };
+  }
 };
 
-const getArtist = async () => {
-  const request = await fetch('http://radiozero.fm/ftp/CurrentSong.txt', {
-    'Content-Type': 'text/plain',
-  });
-  const response = await request.text();
+const caratule = async ({term}) => {
+  try {
+    const {data} = !term.includes('Radio Zero')
+      ? await axios.get(
+          `https://itunes.apple.com/search?term=${term}&limit=1`,
+          {
+            method: 'GET',
+            redirect: 'follow',
+          },
+        )
+      : {data: null};
 
-  console.log(response);
-  const dividerText = response.split('-');
+    return data;
+  } catch (err) {
+    return null;
+  }
+};
 
-  const formatData =
-    dividerText.length === 2
-      ? dividerText.reduce((acc, item, index) => {
-          return index
-            ? {
-                ...acc,
-                title: item ? item.trim() : 'Radio Zero',
-              }
-            : {...acc, artist: item ? item.trim() : 'Radio Zero'};
-        }, {})
-      : {title: 'Radio Zero', artist: 'Radio Zero', image: ''};
+export const getArtist = async () => {
+  const {data} = await axios.get('https://radiozero.fm/ftp/CurrentSong.txt');
 
-  /* 
-  const getImage = await fetch(
-    `https://itunes.apple.com/search?term=${formatData.artist}&limit=1`,
-  );
-  const responseImage = await getImage.json();
-  const image = responseImage.results[0]?.artworkUrl100;
-  */
+  const currentSong = await caratule({term: data});
   return {
-    ...formatData,
-    image: '',
+    title: data,
+    image: currentSong?.results[0]?.artworkUrl100,
   };
 };
 
-export default {...constructorApi(queries), getArtist};
+export const podcast = async (query = 1) => {
+  const {data} = await axiosInstance.get(`/podcast?per_page=5&page=${query}`);
+  const dataWithMedia = await Promise.all(data.map(mappingDataMedia));
+  return dataWithMedia;
+};
+
+export const blog = async (query = 1) => {
+  const {data} = await axiosInstance.get(`/posts?per_page=5&page=${query}`);
+  const dataWithMedia = await Promise.all(data.map(mappingDataMedia));
+  return dataWithMedia;
+};
+
+export const releases = async (query = 1) => {
+  const {data} = await axiosInstance.get(
+    `/posts?categories=393&per_page=5&page=${query}`,
+  );
+  const dataWithMedia = await Promise.all(data.map(mappingDataMedia));
+  return dataWithMedia;
+};
+
+export const shows = async (query = 1) => {
+  const {data} = await axiosInstance.get(`/shows?per_page=5&page=${query}`);
+  const dataWithMedia = await Promise.all(data.map(mappingDataMedia));
+  return dataWithMedia;
+};

@@ -1,9 +1,13 @@
 import React, {useContext} from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
+import GlobalState from '../../statement/GlobalContext';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const MenuPlayer = () => {
-  const {togglePlayer, playing, infoArtist} = useContext(PlayerContext);
+  const {togglePlayer, playing} = useContext(PlayerContext);
+
+  const {infoArtist} = useContext(GlobalState);
 
   return (
     <View style={styles.container}>
@@ -11,7 +15,9 @@ const MenuPlayer = () => {
         source={
           infoArtist?.image
             ? {uri: infoArtist?.image}
-            : require('../../../assets/logo.png')
+            : {
+                uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+              }
         }
         style={styles.image}
       />
@@ -25,15 +31,9 @@ const MenuPlayer = () => {
 
         <TouchableOpacity onPress={togglePlayer}>
           {playing ? (
-            <Image
-              style={styles.play}
-              source={require('../../../assets/pause.png')}
-            />
+            <Icon name="pause-circle" color="white" size={63} />
           ) : (
-            <Image
-              source={require('../../../assets/play.png')}
-              style={styles.play}
-            />
+            <Icon name="play-circle" color="white" size={63} />
           )}
         </TouchableOpacity>
       </View>
