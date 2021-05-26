@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import SoundPlayer from 'react-native-sound-player';
+import RadioPlayer, {
+  RadioPlayerEvents,
+  RadioPlayerMetadata,
+} from 'react-native-radio-player';
 
 export const PlayerContext = React.createContext({});
 
@@ -38,9 +42,12 @@ export const GlobalPlayer = ({children}) => {
 
   const play = player => {
     setPlaying(true);
-    initialPlay ? player() : SoundPlayer.play();
+    setLoadingPlay(true);
+    //initialPlay ? player() : SoundPlayer.play();
+    RadioPlayer.play();
 
-    initialPlay && SoundPlayer.setVolume(volumen / 100);
+    setLoadingPlay(false);
+    //initialPlay && SoundPlayer.setVolume(volumen / 100);
   };
 
   const pauseOnPodcast = () => {
@@ -51,7 +58,8 @@ export const GlobalPlayer = ({children}) => {
 
   const pause = () => {
     setPlaying(false);
-    SoundPlayer.pause();
+    //SoundPlayer.pause();
+    RadioPlayer.stop();
   };
 
   const togglePlayer = async () => {
@@ -64,6 +72,13 @@ export const GlobalPlayer = ({children}) => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    RadioPlayer.radioURLWithMetadataSeparator(
+      'https://radiozero.fm/reproductor/proxy/',
+      '-',
+    );
+  }, []);
 
   useEffect(() => {
     const _onFinishedPlayingSubscription = SoundPlayer.addEventListener(

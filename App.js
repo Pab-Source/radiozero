@@ -1,16 +1,19 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, LogBox, PermissionsAndroid} from 'react-native';
+import {SafeAreaView, LogBox} from 'react-native';
 import RootNavigator from './src/navigator';
 import SplashScreen from 'react-native-splash-screen';
 import {GlobalState} from './src/statement/GlobalContext';
 import {GlobalPlayer} from './src/statement/PlayerContext';
+import RNANAndroidSettingsLibrary from 'react-native-android-settings-library';
+
+const option = 'ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS';
 
 LogBox.ignoreAllLogs(true);
 
-console.log(PermissionsAndroid);
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
+    RNANAndroidSettingsLibrary.open(option);
   }, []);
 
   return (
