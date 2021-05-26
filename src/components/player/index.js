@@ -31,16 +31,17 @@ const Player = () => {
       <View style={styles.container}>
         <Image
           style={{
-            width: 327,
+            width: infoArtist?.image ? '100%' : '80%',
             flex: 1,
-            height: 200,
+            marginTop: 0,
+            height: 250,
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
-            resizeMode: infoArtist?.image ? 'cover' : 'contain',
+            resizeMode: infoArtist?.image ? 'stretch' : 'contain',
           }}
           source={
             infoArtist?.image
-              ? {uri: infoArtist?.image}
+              ? {uri: infoArtist?.image?.replace(/100/g, '600')}
               : {
                   uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
                 }
@@ -49,9 +50,7 @@ const Player = () => {
         <Text style={styles.textArtists}>
           {infoArtist?.title || 'Radio Zero'}
         </Text>
-        <Text style={styles.textTitle}>
-          {infoArtist?.artist || 'Radio Zero'}
-        </Text>
+        <Text style={styles.textTitle}>{'Radio Zero'}</Text>
         <View style={styles.wrapperControlVol}>
           <TouchableOpacity onPress={decrementVolume} opacity={1}>
             <Image
@@ -147,7 +146,7 @@ const styles = StyleSheet.create({
   wrapper: {
     width: 327,
     alignItems: 'center',
-    height: '30%',
+    justifyContent: 'center',
   },
   container: {
     backgroundColor: 'white',

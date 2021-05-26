@@ -31,7 +31,7 @@ const Menu = () => {
         ...styles.container,
         backgroundColor: visible ? '#051439' : '#000000',
       }}>
-      <StatusBar backgroundColor="#051439" barStyle="light-content" />
+      <StatusBar backgroundColor="#000000" barStyle="light-content" />
       <TouchableOpacity
         style={styles.wrapperIcon}
         onPress={() => setVisible(true)}>
@@ -72,6 +72,13 @@ const Menu = () => {
               <Text style={styles.itemText}>RADIO</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => handleNavigate('Podcast')}
+              style={styles.item}>
+              <Icon name="podcast" size={27} color="white" />
+              <Text style={styles.itemText}>PODCAST</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
               onPress={() => handleNavigate('Events')}
               style={styles.item}>
               <Icon name="calendar-alt" size={27} color="white" />
@@ -82,13 +89,6 @@ const Menu = () => {
               style={styles.item}>
               <Icon name="compact-disc" size={27} color="white" />
               <Text style={styles.itemText}>LANZAMIENTOS</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleNavigate('Podcast')}
-              style={styles.item}>
-              <Icon name="podcast" size={27} color="white" />
-
-              <Text style={styles.itemText}>PODCAST</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

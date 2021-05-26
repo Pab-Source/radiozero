@@ -21,7 +21,7 @@ export const useInfoArtist = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       obtainArtist();
-    }, 30000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

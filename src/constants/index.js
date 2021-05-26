@@ -38,10 +38,7 @@ const caratule = async ({term}) => {
     const {data} = !term.includes('Radio Zero')
       ? await axios.get(
           `https://itunes.apple.com/search?term=${term}&limit=1`,
-          {
-            method: 'GET',
-            redirect: 'follow',
-          },
+          {method: 'GET', redirect: 'follow'},
         )
       : {data: null};
 
