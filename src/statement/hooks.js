@@ -10,7 +10,6 @@ export const useInfoArtist = () => {
   const obtainArtist = async () => {
     try {
       const response = await getArtist();
-      console.log(response);
       setInfoArtist(response);
     } catch (err) {
       console.log(err);

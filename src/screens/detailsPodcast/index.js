@@ -21,7 +21,8 @@ const DetailPodcast = ({
   },
   navigation,
 }) => {
-  const {togglePlayerPodcast, playingPodcast} = useContext(PlayerContext);
+  const {togglePlayerPodcast, playingPodcast, playing} =
+    useContext(PlayerContext);
 
   const mp3 = item.content.rendered
     ?.split(' ')
@@ -30,9 +31,9 @@ const DetailPodcast = ({
 
   useEffect(() => {
     navigation.addListener('blur', () => {
-      playingPodcast && togglePlayerPodcast();
+      //playing && togglePlayerPodcast();
     });
-  }, [navigation, togglePlayerPodcast, playingPodcast]);
+  }, [navigation, togglePlayerPodcast, playingPodcast, playing]);
 
   return (
     <ScrollView style={styles.container}>

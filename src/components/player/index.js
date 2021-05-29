@@ -1,18 +1,11 @@
 import React, {useContext} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ActivityIndicator,
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 import GlobalState from '../../statement/GlobalContext';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Player = () => {
-  const {togglePlayer, playing, loadingPlay} = useContext(PlayerContext);
+  const {togglePlayer, playing} = useContext(PlayerContext);
 
   const {
     infoArtist,
@@ -45,9 +38,6 @@ const Player = () => {
         </Text>
         <Text style={styles.textTitle}>{'Radio Zero'}</Text>
       </View>
-      {loadingPlay && (
-        <ActivityIndicator style={{marginTop: 10}} size="large" color="white" />
-      )}
       <TouchableOpacity
         opacity={1}
         style={styles.controlPlay}
@@ -114,7 +104,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
   controlPlay: {
-    marginTop: 10,
+    marginTop: 1,
     top: 0,
   },
   textArtists: {

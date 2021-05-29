@@ -1,5 +1,12 @@
 import React, {useContext} from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  PixelRatio,
+} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 import GlobalState from '../../statement/GlobalContext';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -31,9 +38,9 @@ const MenuPlayer = () => {
 
         <TouchableOpacity onPress={togglePlayer}>
           {playing ? (
-            <Icon name="pause-circle" color="white" size={63} />
+            <Icon name="pause-circle" color="white" size={30} />
           ) : (
-            <Icon name="play-circle" color="white" size={63} />
+            <Icon name="play-circle" color="white" size={30} />
           )}
         </TouchableOpacity>
       </View>
@@ -43,27 +50,28 @@ const MenuPlayer = () => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: '3%',
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },
   containerRight: {
-    flexBasis: '81%',
+    flexBasis: '85%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   infoArtist: {
+    flexBasis: '75%',
     justifyContent: 'center',
     marginLeft: 18,
     height: 63,
   },
   title: {
-    maxWidth: '90%',
     color: 'white',
     fontFamily: 'HelveticaNeue',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 10,
   },
   artist: {
     color: 'white',
@@ -73,8 +81,9 @@ const styles = StyleSheet.create({
   play: {height: 63, width: 61},
   image: {
     flexBasis: '18%',
-    height: 63,
-    width: 63,
+    height: 43,
+    width: 43,
+    resizeMode: 'contain',
     borderRadius: 10,
   },
 });

@@ -8,6 +8,7 @@ import {
   Modal,
   StatusBar,
   Platform,
+  PixelRatio,
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import MenuPlayer from '../menuPlayer';
@@ -25,6 +26,7 @@ const Menu = () => {
     setVisible(false);
     navigate(route);
   };
+
   return (
     <View
       style={{
@@ -106,15 +108,15 @@ const Menu = () => {
 
             <View style={styles.socialWrapper}>
               <Image
-                style={{height: 80, width: 80, marginRight: 30}}
+                style={{height: 43, width: 43, marginRight: 30}}
                 source={require('../../../assets/insta.png')}
               />
               <Image
-                style={{height: 80, width: 80, marginRight: 30}}
+                style={{height: 43, width: 43, marginRight: 30}}
                 source={require('../../../assets/face.png')}
               />
               <Image
-                style={{height: 80, width: 80}}
+                style={{height: 43, width: 43}}
                 source={require('../../../assets/twitt.png')}
               />
             </View>
@@ -153,9 +155,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentModal: {
-    elevation: 1,
     marginTop: Platform.OS === 'ios' ? 105 : 60,
-    height: Platform.OS === 'ios' ? '70%' : '75%',
+    height: '75%',
     borderColor: 'white',
     borderBottomWidth: 1,
     borderTopWidth: 1,
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   socialWrapper: {
-    marginTop: 59,
+    marginTop: '2%',
     flexDirection: 'row',
     justifyContent: 'center',
   },

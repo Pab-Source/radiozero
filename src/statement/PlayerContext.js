@@ -6,13 +6,10 @@ export const PlayerContext = React.createContext({});
 export const GlobalPlayer = ({children}) => {
   const [playing, setPlaying] = useState(false);
   const [playingPodcast, setPlayingPodcast] = useState(false);
-  const [loadingPlay, setLoadingPlay] = useState(false);
 
   const play = async () => {
-    setLoadingPlay(true);
     setPlaying(true);
     RadioPlayer.play();
-    setLoadingPlay(false);
   };
 
   const pause = () => {
@@ -22,12 +19,12 @@ export const GlobalPlayer = ({children}) => {
 
   const playOnPodcast = () => {
     setPlayingPodcast(true);
-    RadioPlayer.stop();
+    playing && pause();
   };
 
   const pauseOnPodcast = () => {
     setPlayingPodcast(false);
-    RadioPlayer.play();
+    //RadioPlayer.play();
   };
 
   const togglePlayer = async () => {
@@ -53,8 +50,6 @@ export const GlobalPlayer = ({children}) => {
     );
   }, []);
 
-  useEffect(() => {}, []);
-
   return (
     <PlayerContext.Provider
       children={children}
@@ -63,7 +58,6 @@ export const GlobalPlayer = ({children}) => {
         togglePlayerPodcast,
         playingPodcast,
         playing,
-        loadingPlay,
         pauseOnPodcast,
         play,
         pause,
