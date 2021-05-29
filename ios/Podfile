@@ -3,6 +3,8 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
+permissions_path = '../node_modules/react-native-permissions/ios'
+
 target 'radiozero' do
   config = use_native_modules!
 
@@ -13,9 +15,11 @@ target 'radiozero' do
   )
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+     #pod 'react-native-radio-player', :path => '../node_modules/react-native-radio-player'
 
-  pod 'ReactNativeAudioToolkit', :path => '../node_modules/@react-native-community/audio-toolkit'
-
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
+  #pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   target 'radiozeroTests' do
     inherit! :complete
     # Pods for testing
@@ -25,9 +29,15 @@ target 'radiozero' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
-  use_flipper!()
+  # use_flipper!({ 'Flipper-Folly' => '2.5.3', 'Flipper' => '0.87.0', 'Flipper-RSocket' => '1.3.1' })
 
-  post_install do |installer|
-    react_native_post_install(installer)
-  end
+  #  use_flipper!({ 'Flipper-Folly' => '2.5.3', 'Flipper' => '0.87.0', 'Flipper-RSocket' => '1.3.1' })
+   post_install do |pi|
+     #flipper_post_install(pi)
+     pi.pods_project.targets.each do |t|
+       t.build_configurations.each do |config|
+         config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+       end    
+     end
+   end
 end

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, LogBox} from 'react-native';
+import {SafeAreaView, LogBox, Platform} from 'react-native';
 import RootNavigator from './src/navigator';
 import SplashScreen from 'react-native-splash-screen';
 import {GlobalState} from './src/statement/GlobalContext';
@@ -13,7 +13,7 @@ LogBox.ignoreAllLogs(true);
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
-    RNANAndroidSettingsLibrary.open(option);
+    Platform.OS === 'android' && RNANAndroidSettingsLibrary.open(option);
   }, []);
 
   return (

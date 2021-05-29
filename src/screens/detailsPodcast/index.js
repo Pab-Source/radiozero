@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState, useCallback} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {
   View,
   Text,
@@ -21,48 +21,22 @@ const DetailPodcast = ({
   },
   navigation,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const {playing, play, pause} = useContext(PlayerContext);
+  const {togglePlayerPodcast, playingPodcast} = useContext(PlayerContext);
 
   const mp3 = item.content.rendered
     ?.split(' ')
     ?.filter(i => i.includes('upload'))[0]
     ?.slice(5, -5);
 
-  const playPodcast = async () => {
-    setIsPlaying(true);
-  };
-
-  const pausePodcast = async () => {
-    setIsPlaying(false);
-  };
-
-  const togglePodcast = useCallback(() => {
-    if (playing) {
-      if (!isPlaying) {
-        pause();
-        playPodcast();
-      }
-    } else {
-      if (isPlaying) {
-        pausePodcast();
-        play();
-      }
-    }
-  }, [isPlaying, play, pause, playing]);
-
   useEffect(() => {
-    if (playing) {
-      pausePodcast();
-    }
     navigation.addListener('blur', () => {
-      !playing && togglePodcast();
+      playingPodcast && togglePlayerPodcast();
     });
-  }, [navigation, togglePodcast, playing, isPlaying]);
+  }, [navigation, togglePlayerPodcast, playingPodcast]);
 
   return (
     <ScrollView style={styles.container}>
-      <Menu toggle={togglePodcast} />
+      <Menu toggle={togglePlayerPodcast} />
       <StatusBar backgroundColor="#000000" animated={true} />
       <View style={styles.wrapperImage}>
         <Image
@@ -101,11 +75,11 @@ const DetailPodcast = ({
           ]}
         />
       </View>
-      {isPlaying && <Video source={{uri: mp3}} />}
+      {playingPodcast && <Video source={{uri: mp3}} />}
       {mp3 && (
         <View style={styles.wrapperControlVol}>
-          <TouchableOpacity onPress={togglePodcast}>
-            {isPlaying ? (
+          <TouchableOpacity onPress={togglePlayerPodcast}>
+            {playingPodcast ? (
               <Image
                 source={require('../../../assets/pause.png')}
                 style={{height: 50, width: 50}}

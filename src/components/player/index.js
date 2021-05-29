@@ -12,14 +12,7 @@ import GlobalState from '../../statement/GlobalContext';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Player = () => {
-  const {
-    togglePlayer,
-    playing,
-    incrementVolume,
-    decrementVolume,
-    volumen,
-    loadingPlay,
-  } = useContext(PlayerContext);
+  const {togglePlayer, playing, loadingPlay} = useContext(PlayerContext);
 
   const {
     infoArtist,
@@ -34,7 +27,7 @@ const Player = () => {
             width: infoArtist?.image ? '100%' : '80%',
             flex: 1,
             marginTop: 0,
-            height: 250,
+            height: 150,
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
             resizeMode: infoArtist?.image ? 'stretch' : 'contain',
@@ -51,43 +44,6 @@ const Player = () => {
           {infoArtist?.title || 'Radio Zero'}
         </Text>
         <Text style={styles.textTitle}>{'Radio Zero'}</Text>
-        <View style={styles.wrapperControlVol}>
-          <TouchableOpacity onPress={decrementVolume} opacity={1}>
-            <Image
-              style={styles.icon}
-              source={require('../../../assets/volumen-mute.png')}
-            />
-          </TouchableOpacity>
-          <View style={styles.vol}>
-            <View style={{height: 3, backgroundColor: '#707070'}} />
-            <View
-              style={{
-                position: 'absolute',
-                width: `${volumen}%`,
-                height: 4,
-                backgroundColor: '#060F2F',
-                justifyContent: 'center',
-              }}>
-              <View
-                style={{
-                  position: 'absolute',
-                  right: 0,
-                  borderRadius: 10,
-                  height: 10,
-                  width: 10,
-                  justifyContent: 'center',
-                  backgroundColor: '#060F2F',
-                }}
-              />
-            </View>
-          </View>
-          <TouchableOpacity onPress={incrementVolume} opacity={1}>
-            <Image
-              style={styles.icon}
-              source={require('../../../assets/volumen.png')}
-            />
-          </TouchableOpacity>
-        </View>
       </View>
       {loadingPlay && (
         <ActivityIndicator style={{marginTop: 10}} size="large" color="white" />
@@ -159,13 +115,7 @@ const styles = StyleSheet.create({
   },
   controlPlay: {
     marginTop: 10,
-    zIndex: 1,
     top: 0,
-  },
-  wrapperControlVol: {
-    marginVertical: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   textArtists: {
     fontSize: 20,
@@ -182,11 +132,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'HelveticaNeue',
     color: '#707070',
-  },
-  vol: {
-    width: 161,
-    marginHorizontal: 10,
-    justifyContent: 'center',
   },
   icon: {
     height: 36,

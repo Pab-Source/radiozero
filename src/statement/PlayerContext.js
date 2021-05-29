@@ -1,73 +1,46 @@
 import React, {useState, useEffect} from 'react';
-import SoundPlayer from 'react-native-sound-player';
-import RadioPlayer, {
-  RadioPlayerEvents,
-  RadioPlayerMetadata,
-} from 'react-native-radio-player';
+import RadioPlayer from 'react-native-radio-player';
 
 export const PlayerContext = React.createContext({});
 
 export const GlobalPlayer = ({children}) => {
-  const [initialPlay, setInitialPlay] = useState(true);
   const [playing, setPlaying] = useState(false);
+  const [playingPodcast, setPlayingPodcast] = useState(false);
   const [loadingPlay, setLoadingPlay] = useState(false);
-  const [volumen, setVolumen] = useState(50);
 
-  const incrementVolume = () => {
-    if (volumen === 100) {
-      return;
-    }
-    const vol = volumen + 10;
-    setVolumen(vol);
-    SoundPlayer.setVolume(vol / 100);
-  };
-
-  const decrementVolume = () => {
-    if (volumen === 0) {
-      return;
-    }
-    const vol = volumen - 10;
-    setVolumen(vol);
-    SoundPlayer.setVolume(vol / 100);
-  };
-
-  const playLoadUrl = () => {
-    initialPlay && setLoadingPlay(true);
-    return () => {
-      setTimeout(() => {
-        SoundPlayer.playUrl('https://radiozero.fm/reproductor/proxy/');
-      }, 1000);
-    };
-  };
-
-  const play = player => {
-    setPlaying(true);
+  const play = async () => {
     setLoadingPlay(true);
-    //initialPlay ? player() : SoundPlayer.play();
+    setPlaying(true);
     RadioPlayer.play();
-
     setLoadingPlay(false);
-    //initialPlay && SoundPlayer.setVolume(volumen / 100);
-  };
-
-  const pauseOnPodcast = () => {
-    SoundPlayer.pause();
-    setPlaying(false);
-    setInitialPlay(true);
   };
 
   const pause = () => {
     setPlaying(false);
-    //SoundPlayer.pause();
     RadioPlayer.stop();
+  };
+
+  const playOnPodcast = () => {
+    setPlayingPodcast(true);
+    RadioPlayer.stop();
+  };
+
+  const pauseOnPodcast = () => {
+    setPlayingPodcast(false);
+    RadioPlayer.play();
   };
 
   const togglePlayer = async () => {
     try {
-      const player = playLoadUrl();
-      playing ? pause() : play(player);
+      playing ? pause() : play();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-      setInitialPlay(false);
+  const togglePlayerPodcast = async () => {
+    try {
+      playingPodcast ? pauseOnPodcast() : playOnPodcast();
     } catch (err) {
       console.log(err);
     }
@@ -80,50 +53,16 @@ export const GlobalPlayer = ({children}) => {
     );
   }, []);
 
-  useEffect(() => {
-    const _onFinishedPlayingSubscription = SoundPlayer.addEventListener(
-      'FinishedPlaying',
-      ({success}) => {
-        console.log('finished playing', success);
-      },
-    );
-    const _onFinishedLoadingSubscription = SoundPlayer.addEventListener(
-      'FinishedLoading',
-      ({success}) => {
-        success && setLoadingPlay(false);
-        console.log('finished loading', success);
-      },
-    );
-    const _onFinishedLoadingFileSubscription = SoundPlayer.addEventListener(
-      'FinishedLoadingFile',
-      ({success, name, type}) => {
-        console.log('finished loading file', success, name, type);
-      },
-    );
-    const _onFinishedLoadingURLSubscription = SoundPlayer.addEventListener(
-      'FinishedLoadingURL',
-      ({success, url}) => {
-        console.log('finished loading url', success, url);
-      },
-    );
-
-    return () => {
-      _onFinishedPlayingSubscription.remove();
-      _onFinishedLoadingSubscription.remove();
-      _onFinishedLoadingURLSubscription.remove();
-      _onFinishedLoadingFileSubscription.remove();
-    };
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <PlayerContext.Provider
       children={children}
       value={{
         togglePlayer,
+        togglePlayerPodcast,
+        playingPodcast,
         playing,
-        incrementVolume,
-        decrementVolume,
-        volumen,
         loadingPlay,
         pauseOnPodcast,
         play,
