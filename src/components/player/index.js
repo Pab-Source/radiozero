@@ -1,5 +1,12 @@
-import React, {useContext} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import React, {useContext, useState, useEffect} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 import GlobalState from '../../statement/GlobalContext';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -7,23 +14,33 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const Player = () => {
   const {togglePlayer, playing} = useContext(PlayerContext);
 
+  const [charge, setCharge] = useState(playing);
+
   const {
     infoArtist,
     social: {openInstagram, openFacebook, openTwitter},
   } = useContext(GlobalState);
+
+  useEffect(() => {
+    setCharge(playing);
+    if (playing) {
+      setTimeout(() => {
+        setCharge(false);
+      }, 3000);
+    }
+  }, [playing]);
 
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
         <Image
           style={{
-            width: infoArtist?.image ? '100%' : '80%',
-            flex: 1,
-            marginTop: 0,
-            height: 150,
-            borderTopLeftRadius: 16,
-            borderTopRightRadius: 16,
-            resizeMode: infoArtist?.image ? 'stretch' : 'contain',
+            marginTop: -2,
+            width: '101%',
+            height: 200,
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
+            resizeMode: infoArtist?.image ? 'stretch' : 'center',
           }}
           source={
             infoArtist?.image
@@ -38,6 +55,7 @@ const Player = () => {
         </Text>
         <Text style={styles.textTitle}>{'Radio Zero'}</Text>
       </View>
+      {charge && <ActivityIndicator size="large" color="white" />}
       <TouchableOpacity
         opacity={1}
         style={styles.controlPlay}
@@ -86,26 +104,23 @@ const styles = StyleSheet.create({
   socialWrapper: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 10,
-    height: 200,
   },
   wrapper: {
     width: 327,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   container: {
     backgroundColor: 'white',
     width: 327,
     borderColor: '#FFFDFD',
-    borderRadius: 16,
+    borderRadius: 20,
     alignItems: 'center',
     paddingHorizontal: 1,
     paddingBottom: 30,
   },
   controlPlay: {
-    marginTop: 1,
-    top: 0,
+    marginVertical: 8,
+    padding: 1,
   },
   textArtists: {
     fontSize: 20,

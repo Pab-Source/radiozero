@@ -28,43 +28,32 @@ const MenuPlayer = () => {
         }
         style={styles.image}
       />
-      <View style={styles.containerRight}>
-        <View style={styles.infoArtist}>
-          <Text style={styles.title}>{infoArtist?.title || 'Radio Zero'}</Text>
-          <Text style={styles.artist}>
-            {infoArtist?.artist || 'Radio Zero'}
-          </Text>
-        </View>
-
-        <TouchableOpacity onPress={togglePlayer}>
-          {playing ? (
-            <Icon name="pause-circle" color="white" size={30} />
-          ) : (
-            <Icon name="play-circle" color="white" size={30} />
-          )}
-        </TouchableOpacity>
+      <View style={styles.infoArtist}>
+        <Text style={styles.title}>{infoArtist?.title || 'Radio Zero'}</Text>
+        <Text style={styles.artist}>{infoArtist?.artist || 'Radio Zero'}</Text>
       </View>
+      <TouchableOpacity style={styles.player} onPress={togglePlayer}>
+        {playing ? (
+          <Icon name="pause-circle" color="white" size={30} />
+        ) : (
+          <Icon name="play-circle" color="white" size={30} />
+        )}
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: '3%',
-    flex: 1,
+    marginVertical: '3%',
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  containerRight: {
-    flexBasis: '85%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
   infoArtist: {
-    flexBasis: '75%',
+    paddingLeft: 20,
+    flexBasis: '68%',
+    maxWidth: '68%',
     justifyContent: 'center',
-    marginLeft: 18,
     height: 63,
   },
   title: {
@@ -80,11 +69,15 @@ const styles = StyleSheet.create({
   },
   play: {height: 63, width: 61},
   image: {
-    flexBasis: '18%',
-    height: 43,
-    width: 43,
+    flexBasis: '16%',
+    height: 53,
+    width: 53,
     resizeMode: 'contain',
     borderRadius: 10,
+  },
+  player: {
+    flexBasis: '16%',
+    alignItems: 'center',
   },
 });
 

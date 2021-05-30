@@ -1,10 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, ScrollView, Platform} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import Player from '../../components/player';
 
 const Radio = () => {
   return (
-    <ScrollView style={{height: '70%', backgroundColor: '#051439'}}>
+    <ScrollView
+      contentContainerStyle={{flex: 1}}
+      style={{backgroundColor: '#051439', height: '100%'}}>
       <View style={styles.content}>
         <Player />
       </View>
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#06143c',
     flex: 1,
     alignItems: 'center',
-    paddingTop: Platform.OS === 'ios' ? 33 : 23,
+    justifyContent: 'center',
   },
 });
 export default Radio;

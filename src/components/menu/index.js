@@ -8,7 +8,7 @@ import {
   Modal,
   StatusBar,
   Platform,
-  PixelRatio,
+  SafeAreaView,
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import MenuPlayer from '../menuPlayer';
@@ -28,7 +28,7 @@ const Menu = () => {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={{
         ...styles.container,
         backgroundColor: visible ? '#051439' : '#000000',
@@ -108,15 +108,15 @@ const Menu = () => {
 
             <View style={styles.socialWrapper}>
               <Image
-                style={{height: 43, width: 43, marginRight: 30}}
+                style={{height: 65, width: 65, marginRight: 30}}
                 source={require('../../../assets/insta.png')}
               />
               <Image
-                style={{height: 43, width: 43, marginRight: 30}}
+                style={{height: 65, width: 65, marginRight: 30}}
                 source={require('../../../assets/face.png')}
               />
               <Image
-                style={{height: 43, width: 43}}
+                style={{height: 65, width: 65}}
                 source={require('../../../assets/twitt.png')}
               />
             </View>
@@ -124,7 +124,7 @@ const Menu = () => {
           </View>
         </TouchableOpacity>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -155,12 +155,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentModal: {
-    marginTop: Platform.OS === 'ios' ? 105 : 60,
-    height: '75%',
+    marginTop: 80,
     borderColor: 'white',
     borderBottomWidth: 1,
-    borderTopWidth: 1,
-    padding: 20,
+    paddingTop: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#051439',
   },
   item: {
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   socialWrapper: {
-    marginTop: '2%',
+    marginTop: '6%',
     flexDirection: 'row',
     justifyContent: 'center',
   },
