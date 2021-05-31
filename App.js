@@ -15,7 +15,7 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#051439'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#000000'}}>
       <GlobalState>
         <GlobalPlayer>
           <RootNavigator />

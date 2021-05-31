@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
   Modal,
   StatusBar,
-  Platform,
   SafeAreaView,
+  Dimensions,
+  Linking,
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import MenuPlayer from '../menuPlayer';
@@ -27,16 +28,17 @@ const Menu = () => {
     navigate(route);
   };
 
-  return (
-    <SafeAreaView
+  const menu = (
+    <View
       style={{
-        ...styles.container,
-        backgroundColor: visible ? '#051439' : '#000000',
+        height: Dimensions.get('window').height * 0.1,
+        alignItems: 'center',
+        width: '100%',
+        flexDirection: 'row',
       }}>
-      <StatusBar backgroundColor="#000000" barStyle="light-content" />
       <TouchableOpacity
         style={styles.wrapperIcon}
-        onPress={() => setVisible(true)}>
+        onPress={() => setVisible(!visible)}>
         <Image
           style={styles.icon}
           source={require('../../../assets/iconmenu.png')}
@@ -50,9 +52,13 @@ const Menu = () => {
           }}
         />
       </View>
-
       {condition && (
         <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingRight: 10,
+          }}
           onPress={() => {
             goBack();
           }}>
@@ -61,68 +67,90 @@ const Menu = () => {
           </Text>
         </TouchableOpacity>
       )}
-      <Modal visible={visible} style={styles.modal} transparent>
-        <TouchableOpacity
-          style={{flex: 1}}
-          opacity={1}
-          onPress={() => setVisible(false)}>
-          <View style={styles.contentModal}>
-            <TouchableOpacity
-              onPress={() => handleNavigate('Radio')}
-              style={styles.item}>
-              <Icon name="play-circle" size={27} color="white" />
-              <Text style={styles.itemText}>RADIO</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleNavigate('Podcast')}
-              style={styles.item}>
-              <Icon name="podcast" size={27} color="white" />
-              <Text style={styles.itemText}>PODCAST</Text>
-            </TouchableOpacity>
+    </View>
+  );
 
-            <TouchableOpacity
-              onPress={() => handleNavigate('Events')}
-              style={styles.item}>
-              <Icon name="calendar-alt" size={27} color="white" />
-              <Text style={styles.itemText}>PROGRAMACIÓN</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleNavigate('Releases')}
-              style={styles.item}>
-              <Icon name="compact-disc" size={27} color="white" />
-              <Text style={styles.itemText}>LANZAMIENTOS</Text>
-            </TouchableOpacity>
+  return (
+    <SafeAreaView
+      style={{
+        ...styles.container,
+        backgroundColor: visible ? '#000000' : '#000000',
+      }}>
+      <StatusBar backgroundColor="#000000" barStyle="light-content" />
+      {!visible && menu}
+      <Modal
+        visible={visible}
+        style={styles.modal}
+        transparent
+        animationType="fade">
+        <SafeAreaView style={{flex: 1}}>
+          {visible && menu}
+          <TouchableOpacity
+            style={{flex: 1}}
+            opacity={1}
+            onPress={() => setVisible(false)}>
+            <View style={styles.contentModal}>
+              <TouchableOpacity
+                onPress={() => handleNavigate('Radio')}
+                style={styles.item}>
+                <Icon name="play-circle" size={27} color="white" />
+                <Text style={styles.itemText}>RADIO</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleNavigate('Podcast')}
+                style={styles.item}>
+                <Icon name="podcast" size={27} color="white" />
+                <Text style={styles.itemText}>PODCAST</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() => handleNavigate('Blog')}
-              style={styles.item}>
-              <Icon name="blogger-b" size={27} color="white" />
-              <Text style={styles.itemText}>BLOG</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleNavigate('Contact')}
-              style={styles.item}>
-              <Icon name="envelope-open" size={27} color="white" />
-              <Text style={styles.itemText}>CONTACTANOS</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleNavigate('Events')}
+                style={styles.item}>
+                <Icon name="calendar-alt" size={27} color="white" />
+                <Text style={styles.itemText}>PROGRAMACIÓN</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleNavigate('Releases')}
+                style={styles.item}>
+                <Icon name="compact-disc" size={27} color="white" />
+                <Text style={styles.itemText}>LANZAMIENTOS</Text>
+              </TouchableOpacity>
 
-            <View style={styles.socialWrapper}>
-              <Image
-                style={{height: 65, width: 65, marginRight: 30}}
-                source={require('../../../assets/insta.png')}
-              />
-              <Image
-                style={{height: 65, width: 65, marginRight: 30}}
-                source={require('../../../assets/face.png')}
-              />
-              <Image
-                style={{height: 65, width: 65}}
-                source={require('../../../assets/twitt.png')}
-              />
+              <TouchableOpacity
+                onPress={() => handleNavigate('Blog')}
+                style={styles.item}>
+                <Icon name="blogger-b" size={27} color="white" />
+                <Text style={styles.itemText}>BLOG</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  Linking.openURL(
+                    'mailto:info@radiozero.fm?subject=Email desde la app',
+                  )
+                }
+                style={styles.item}>
+                <Icon name="envelope-open" size={27} color="white" />
+                <Text style={styles.itemText}>CONTACTANOS</Text>
+              </TouchableOpacity>
+
+              <View style={styles.socialWrapper}>
+                <Image
+                  style={{height: 65, width: 65, marginRight: 30}}
+                  source={require('../../../assets/insta.png')}
+                />
+                <Image
+                  style={{height: 65, width: 65, marginRight: 30}}
+                  source={require('../../../assets/face.png')}
+                />
+                <Image
+                  style={{height: 65, width: 65}}
+                  source={require('../../../assets/twitt.png')}
+                />
+              </View>
+              <MenuPlayer />
             </View>
-            <MenuPlayer />
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </SafeAreaView>
       </Modal>
     </SafeAreaView>
   );
@@ -130,8 +158,8 @@ const Menu = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000000',
-    height: 60,
+    backgroundColor: 'red',
+    height: Dimensions.get('window').height * 0.1,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -155,10 +183,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentModal: {
-    marginTop: 80,
     borderColor: 'white',
     borderBottomWidth: 1,
-    paddingTop: 20,
     paddingHorizontal: 20,
     backgroundColor: '#051439',
   },

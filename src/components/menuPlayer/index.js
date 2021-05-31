@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   PixelRatio,
+  Platform,
 } from 'react-native';
 import PlayerContext from '../../statement/PlayerContext';
 import GlobalState from '../../statement/GlobalContext';
@@ -18,16 +19,32 @@ const MenuPlayer = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={
-          infoArtist?.image
-            ? {uri: infoArtist?.image}
-            : {
-                uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
-              }
-        }
-        style={styles.image}
-      />
+      <View
+        style={{
+          flexBasis: '16%',
+          height: 53,
+          width: 53,
+          borderWidth: 3,
+          borderColor: 'white',
+          borderRadius: 16,
+        }}>
+        <Image
+          source={
+            infoArtist?.image
+              ? {uri: infoArtist?.image}
+              : {
+                  uri: 'https://radiozero.fm/wp-content/uploads/2021/03/logo-radio-zero-fm.png',
+                }
+          }
+          style={{
+            flex: 1,
+            borderWidth: infoArtist?.image ? 3 : 0,
+            borderColor: 'white',
+            resizeMode: infoArtist?.image ? 'stretch' : 'center',
+            borderRadius: infoArtist?.image ? 16 : 0,
+          }}
+        />
+      </View>
       <View style={styles.infoArtist}>
         <Text style={styles.title}>{infoArtist?.title || 'Radio Zero'}</Text>
         <Text style={styles.artist}>{infoArtist?.artist || 'Radio Zero'}</Text>
@@ -69,11 +86,7 @@ const styles = StyleSheet.create({
   },
   play: {height: 63, width: 61},
   image: {
-    flexBasis: '16%',
-    height: 53,
-    width: 53,
-    resizeMode: 'contain',
-    borderRadius: 10,
+    flex: 1,
   },
   player: {
     flexBasis: '16%',

@@ -13,7 +13,14 @@ const mappingDataMedia = async ({
 }) => {
   try {
     const {
-      data: {source_url, description},
+      data: {
+        media_details: {
+          sizes: {
+            medium: {source_url},
+          },
+        },
+        description,
+      },
     } = await axiosInstance.get(`/media/${featured_media}`);
     return {
       title,

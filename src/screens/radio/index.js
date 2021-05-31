@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import Player from '../../components/player';
+import GlobalState from '../../statement/GlobalContext';
 
-const Radio = () => {
+const Radio = ({navigation}) => {
+  const {getData} = useContext(GlobalState);
+
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      getData();
+    });
+  }, [navigation, getData]);
+
   return (
     <ScrollView
       contentContainerStyle={{flex: 1}}

@@ -1,5 +1,40 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useRef, useCallback, useEffect} from 'react';
+import {AppState} from 'react-native';
 import {podcast, blog, shows, releases, getArtist} from '../constants';
+
+export const useAppState = () => {
+  const appState = useRef(AppState.currentState);
+  const [appStateVisible, setAppStateVisible] = useState({
+    prevOff: true,
+    prev: '',
+    current: appState.current,
+  });
+
+  useEffect(() => {
+    AppState.addEventListener('change', handleStateApp);
+
+    return () => {
+      AppState.removeEventListener('change', handleStateApp);
+    };
+  }, [handleStateApp]);
+
+  const handleStateApp = useCallback(
+    nextAppState => {
+      appState.current = nextAppState;
+      setAppStateVisible({
+        prevOff: appStateVisible.prev ? true : false,
+        prev:
+          appStateVisible.current === appState.current
+            ? 'background'
+            : appStateVisible.current,
+        current: appState.current,
+      });
+    },
+    [appStateVisible],
+  );
+
+  return appStateVisible;
+};
 
 export const useInfoArtist = () => {
   const [infoArtist, setInfoArtist] = useState({

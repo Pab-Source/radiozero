@@ -6,6 +6,7 @@ import {
   useEventsState,
   useReleasesState,
   useInfoArtist,
+  useAppState,
 } from './hooks';
 
 const instagramUrl = 'https://instagram.com/radiozero_arg';
@@ -20,6 +21,7 @@ export const GlobalState = ({children}) => {
   const {handleSetDataEvents, ...events} = useEventsState();
   const {handleSetDataReleases, ...releases} = useReleasesState();
   const {infoArtist} = useInfoArtist();
+  const stateApp = useAppState();
 
   const getData = useCallback(() => {
     handleSetDataReleases();
@@ -33,9 +35,9 @@ export const GlobalState = ({children}) => {
     handleSetDataReleases,
   ]);
 
-  useEffect(() => {
-    getData();
-  }, [getData]);
+  // useEffect(() => {
+  //   getData();
+  // }, [getData, stateApp]);
 
   const openUrl = useCallback(
     url => async () => {
@@ -51,6 +53,7 @@ export const GlobalState = ({children}) => {
   return (
     <Context.Provider
       value={{
+        getData,
         blog,
         podcast,
         events,

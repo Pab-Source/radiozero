@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 16,
     borderRadius: 20,
+    borderColor: 'white',
+    borderWidth: 3,
   },
   image: {
     width: '100%',
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'HelveticaNeue',
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 18,
     textAlign: 'center',
     top: '35%',
     left: 0,
