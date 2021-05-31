@@ -40,7 +40,7 @@ const Player = () => {
             height: 200,
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
-            resizeMode: infoArtist?.image ? 'stretch' : 'center',
+            resizeMode: infoArtist?.image ? 'stretch' : 'contain',
           }}
           source={
             infoArtist?.image
